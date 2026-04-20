@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es" data-root="./">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glitch Code | Nutrición Deportiva Avanzada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     HEADER FIJO
+════════════════════════════════════════════════════ -->
+<header class="header-fixed">
+  <div class="header-inner">
+
+    <!-- Logo -->
+    <a href="index.html" class="logo">GLITCH CODE</a>
+
+    <!-- Navegación principal con desplegables -->
+    <nav class="header-nav" aria-label="Navegación principal">
+
+      <a href="index.html" class="nav-link">Inicio</a>
+
+      <!-- PRODUCTO con desplegable -->
+            <div class="nav-item">
+        <a href="producto/producto.html" class="nav-link">Producto ▾</a>
+        <div class="dropdown-menu" role="menu">
+          <a href="producto/producto.html#proteinas">Proteínas</a>
+          <a href="producto/producto.html#creatinas">Creatinas</a>
+          <a href="producto/producto.html#preworkout">Preworkout</a>
+          <a href="producto/producto.html#salud">Salud</a>
+          <a href="producto/producto.html#snacks">Snacks</a>
+          <div class="dropdown-divider"></div>
+          <a href="producto/producto.html" style="color:var(--color-accent);font-weight:700;">⚡ Ver todos</a>
+        </div>
+      </div>
+
+      <!-- BLOG -->
+      <div class="nav-item">
+        <a href="blog/blog.html" class="nav-link">Blog ▾</a>
+        <div class="dropdown-menu" role="menu">
+          <a href="blog/blog.html">Guías de suplementos</a>
+          <a href="blog/blog.html#nutricion">Nutrición</a>
+          <a href="blog/blog.html#recuperacion">Recuperación</a>
+          <div class="dropdown-divider"></div>
+          <a href="blog/blog.html" style="color:var(--color-accent);font-weight:700;">Ver todos los artículos</a>
+        </div>
+      </div>
+
+      <!-- CONTACTO con desplegable -->
+      <div class="nav-item">
+        <a href="contacto/contacto.html" class="nav-link">Contacto ▾</a>
+        <div class="dropdown-menu" role="menu">
+          <a href="contacto/contacto.html#formulario">Enviar mensaje</a>
+          <a href="contacto/contacto.html#ubicacion">Nuestra ubicación</a>
+          <a href="contacto/contacto.html#horario">Horario</a>
+        </div>
+      </div>
+
+      <!-- LEGALES con desplegable -->
+      <div class="nav-item">
+        <a href="legales/legales.html" class="nav-link">Legales ▾</a>
+        <div class="dropdown-menu" role="menu">
+          <a href="legales/legales.html#aviso">Aviso legal</a>
+          <a href="legales/legales.html#privacidad">Privacidad</a>
+          <a href="legales/legales.html#cookies">Cookies</a>
+          <a href="legales/legales.html#condiciones">Condiciones de venta</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Iconos + hamburguesa -->
+    <div class="header-icons">
+      <!-- Usuario -->
+      <svg id="userBtn" class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+
+      <!-- Wishlist -->
+      <button id="wishlistToggle" class="cart-toggle" aria-label="Lista de deseos" type="button">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span id="wishlistCount" class="cart-count" style="display:none">0</span>
+      </button>
+
+      <!-- Búsqueda -->
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+
+      <!-- Carrito -->
+      <button id="cartToggle" class="cart-toggle" aria-label="Carrito de compra" type="button">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+
+      <!-- Hamburguesa (móvil) -->
+      <button id="hamburgerBtn" class="hamburger-btn" aria-label="Menú" type="button">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú móvil desplegado -->
+  <nav id="mobileNav" class="mobile-nav" aria-label="Menú móvil">
+    <a href="index.html">Inicio</a>
+    <span class="mobile-cat-label">Producto</span>
+    <a href="producto/producto.html">Proteínas</a>
+    <a href="producto/producto.html#creatinas">Creatinas</a>
+    <a href="producto/producto.html#vitaminas">Vitaminas</a>
+    <a href="producto/producto.html#complementos">Complementos</a>
+    <a href="producto/producto.html#suplementos">Suplementos</a>
+    <a href="producto/producto.html#snacks">Snacks</a>
+    <span class="mobile-cat-label">Blog</span>
+    <a href="blog/blog.html">Blog</a>
+    <span class="mobile-cat-label">Info</span>
+    <a href="contacto/contacto.html">Contacto</a>
+    <a href="legales/legales.html">Legales</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO CARRUSEL
+  ════════════════════════════════════════════════════ -->
+  <section id="inicio" class="hero-home" aria-label="Carrusel principal">
+    <div class="carousel-track" id="carousel-track">
+
+      <div class="carousel-slide active" style="background-image:url('https://images.unsplash.com/photo-1579364046732-c21c2177730d?auto=format&fit=crop&w=1400&q=80')">
+        <div class="carousel-overlay">
+          <h1 class="carousel-text">SUPLEMENTACIÓN DE ALTO RENDIMIENTO</h1>
+          <a href="producto/producto.html" class="carousel-btn">COMPRAR PROTEÍNA</a>
+        </div>
+      </div>
+
+      <div class="carousel-slide" style="background-image:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1400&q=80')">
+        <div class="carousel-overlay">
+          <h2 class="carousel-text">POTENCIA TU RECUPERACIÓN</h2>
+          <a href="producto/producto.html" class="carousel-btn">EXPLORAR PRODUCTO</a>
+        </div>
+      </div>
+
+      <div class="carousel-slide" style="background-image:url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1400&q=80')">
+        <div class="carousel-overlay">
+          <h2 class="carousel-text">LA EVOLUCIÓN ESTÁ AQUÍ</h2>
+          <a href="contacto/contacto.html" class="carousel-btn">CONTACTA CON NOSOTROS</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-dots" id="carousel-dots"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PRODUCTOS DESTACADOS
+  ════════════════════════════════════════════════════ -->
+  <section class="section-shell p-8" aria-labelledby="destacados-title">
+    <div class="max-w-7xl mx-auto">
+      <h2 id="destacados-title" class="section-title text-center mb-8">PRODUCTOS DESTACADOS</h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+        <!-- Tarjeta 1 -->
+        <div class="product-card relative">
+          <button class="wishlist-btn" data-name="Creatina Pura" data-price="34.99€" data-img="assets/img/imgcreatina.png" aria-label="Añadir a favoritos">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="producto/detalle/creatina-monohidrato.html">
+            <img src="assets/img/imgcreatina.png" alt="Creatina pura" class="w-full h-64 object-cover">
+          </a>
+          <div class="p-4">
+            <p class="font-semibold text-lg">Creatina Pura</p>
+            <p class="text-sm text-gray-500">Con sello Creapure</p>
+            <p class="text-blue-600 mt-2 font-semibold">34.99€</p>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="product-card relative">
+          <button class="wishlist-btn" data-name="Proteína Iso-Tech" data-price="45.99€" data-img="assets/img/imgproteina.png" aria-label="Añadir a favoritos">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="producto/producto.html">
+            <img src="assets/img/imgproteina.png" alt="Proteína Iso-Tech" class="w-full h-64 object-cover">
+          </a>
+          <div class="p-4">
+            <p class="font-semibold text-lg">Proteína Iso-Tech</p>
+            <p class="text-sm text-gray-500">Recuperación muscular rápida</p>
+            <p class="text-blue-600 mt-2 font-semibold">45.99€</p>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="product-card relative">
+          <button class="wishlist-btn" data-name="Glitch Fuel" data-price="29.99€" data-img="assets/img/imgpreworkout.png" aria-label="Añadir a favoritos">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+          <a href="producto/detalle/preworkout-glitch-fuel.html">
+            <img src="assets/img/imgpreworkout.png" alt="Pre-workout" class="w-full h-64 object-cover">
+          </a>
+          <div class="p-4">
+            <p class="font-semibold text-lg">Glitch Fuel</p>
+            <p class="text-sm text-gray-500">Máxima energía</p>
+            <p class="text-blue-600 mt-2 font-semibold">29.99€</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       BLOQUES DE MARKETING HORIZONTAL
+  ════════════════════════════════════════════════════ -->
+  <section class="section-shell product-dark py-12" aria-labelledby="explora-title">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 id="explora-title" class="section-title mb-2">EXPLORA LA VENTAJA</h2>
+      <p class="text-gray-400 mb-8">Desliza para descubrir categorías, beneficios y lanzamientos.</p>
+
+      <div class="marketing-scroll-container">
+        <a href="producto/producto.html#proteinas" class="marketing-scroll-item" style="background-image:url('assets/img/imgproteina.png')">
+          <div class="marketing-overlay">
+            <h3 class="marketing-block-title">TECNOLOGÍA EN TU MÚSCULO</h3>
+            <span class="marketing-link">Comprar proteína →</span>
+          </div>
+        </a>
+
+        <a href="producto/producto.html#creatinas" class="marketing-scroll-item" style="background-image:url('assets/img/imgcreatina.png')">
+          <div class="marketing-overlay">
+            <h3 class="marketing-block-title">RECUPERACIÓN RÁPIDA</h3>
+            <span class="marketing-link">Comprar creatinas →</span>
+          </div>
+        </a>
+
+        <a href="producto/producto.html#suplementos" class="marketing-scroll-item" style="background-image:url('https://images.unsplash.com/photo-1584116831211-f5a7d8273f1a?auto=format&fit=crop&w=1200&q=80')">
+          <div class="marketing-overlay">
+            <h3 class="marketing-block-title">ENERGÍA SIN LÍMITES</h3>
+            <span class="marketing-link">Comprar pre-entrenos →</span>
+          </div>
+        </a>
+
+        <a href="producto/producto.html#vitaminas" class="marketing-scroll-item" style="background-image:url('https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&w=1200&q=80')">
+          <div class="marketing-overlay">
+            <h3 class="marketing-block-title">SALUD & VITAMINAS</h3>
+            <span class="marketing-link">Ver vitaminas →</span>
+          </div>
+        </a>
+
+        <a href="producto/producto.html#snacks" class="marketing-scroll-item" style="background-image:url('https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=1200&q=80')">
+          <div class="marketing-overlay">
+            <h3 class="marketing-block-title">SNACKS PROTEICOS</h3>
+            <span class="marketing-link">Ver snacks →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       BLOQUE BLOG DESTACADO
+  ════════════════════════════════════════════════════ -->
+  <section class="section-shell p-8" aria-labelledby="blog-title">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+        <h2 id="blog-title" class="section-title">ÚLTIMOS ARTÍCULOS</h2>
+        <a href="blog/blog.html" class="cta-btn" style="margin-top:0">Ver todos →</a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="blog-card">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Guía creatina">
+          <div class="blog-card-body">
+            <span class="blog-tag">Guía</span>
+            <h3 class="blog-card-title">Creatina: todo lo que necesitas saber</h3>
+            <p class="blog-card-excerpt">Descubre cómo y cuándo tomar creatina para maximizar tu rendimiento y recuperación muscular.</p>
+            <a href="blog/blog.html" class="blog-card-link">Leer más →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80" alt="Nutrición deportiva">
+          <div class="blog-card-body">
+            <span class="blog-tag">Nutrición</span>
+            <h3 class="blog-card-title">Macros para ganar masa muscular</h3>
+            <p class="blog-card-excerpt">Proteínas, carbohidratos y grasas: la guía definitiva para calcular tus macronutrientes.</p>
+            <a href="blog/blog.html" class="blog-card-link">Leer más →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" alt="Recuperación muscular">
+          <div class="blog-card-body">
+            <span class="blog-tag">Recuperación</span>
+            <h3 class="blog-card-title">Recuperación óptima post-entreno</h3>
+            <p class="blog-card-excerpt">Las mejores estrategias de recuperación activa y pasiva para volver más fuerte al gimnasio.</p>
+            <a href="blog/blog.html" class="blog-card-link">Leer más →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════ -->
+<footer style="background: #0a0a0a; color: white; padding: 60px 20px 30px 20px; margin-top: 50px; border-top: 1px solid #222; font-family: 'Poppins', sans-serif;">
+  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+    
+    <div>
+      <h4 style="font-family: 'Orbitron', sans-serif; color: #007BFF; margin-bottom: 20px; font-size: 1rem; text-transform: uppercase;">Productos</h4>
+      <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <li><a href="producto/producto.html#proteinas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Proteínas</a></li>
+        <li><a href="producto/producto.html#creatinas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Creatinas</a></li>
+        <li><a href="producto/producto.html#vitaminas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Vitaminas</a></li>
+        <li><a href="producto/producto.html#complementos" style="color: #888; text-decoration: none; font-size: 0.9rem;">Complementos</a></li>
+        <li><a href="producto/producto.html#suplementos" style="color: #888; text-decoration: none; font-size: 0.9rem;">Suplementos</a></li>
+        <li><a href="producto/producto.html#snacks" style="color: #888; text-decoration: none; font-size: 0.9rem;">Snacks</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 style="font-family: 'Orbitron', sans-serif; color: #007BFF; margin-bottom: 20px; font-size: 1rem; text-transform: uppercase;">Información</h4>
+      <ul style="list-style: none; padding: 0; line-height: 2;">
+        <li><a href="contacto/contacto.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Contacto</a></li>
+        <li><a href="blog/blog.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Blog Nutrición</a></li>
+        <li><a href="legales/legales.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Aviso Legal / Privacidad</a></li>
+      </ul>
+    </div>
+
+    <div style="text-align: right;">
+      <div style="font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 900; color: white; margin-bottom: 10px;">
+        GLITCH <span style="color: #007BFF;">CODE</span>
+      </div>
+      <p style="color: #555; font-size: 0.85rem;">Nutrición Deportiva Avanzada.</p>
+    </div>
+  </div>
+</footer>
+<!-- ═══════════════════════════════════════════════════
+     PANEL WISHLIST LATERAL
+════════════════════════════════════════════════════ -->
+<div id="wishlistDrawer" class="cart-drawer" aria-hidden="true">
+  <div id="wishlistBackdrop" class="cart-backdrop"></div>
+  <aside class="cart-panel" aria-label="Lista de deseos">
+    <div class="cart-header">
+      <h3>❤ Lista de deseos</h3>
+      <button id="wishlistClose" class="cart-close" aria-label="Cerrar" type="button">✕</button>
+    </div>
+    <div id="wishlistItems" class="cart-items">
+      <p class="cart-empty">No has añadido ningún favorito aún.</p>
+    </div>
+  </aside>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PANEL CARRITO LATERAL
+════════════════════════════════════════════════════ -->
+<div id="cartDrawer" class="cart-drawer" aria-hidden="true">
+  <div id="cartBackdrop" class="cart-backdrop"></div>
+  <aside class="cart-panel" aria-label="Carrito de compra">
+    <div class="cart-header">
+      <h3>Tu carrito</h3>
+      <button id="cartClose" class="cart-close" aria-label="Cerrar" type="button">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items">
+      <p class="cart-empty">Tu carrito está vacío.</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span>Total</span>
+        <strong><span id="cartTotal">0.00</span> €</strong>
+      </div>
+      <!-- Enlace al checkout -->
+      <a href="checkout/checkout.html" class="btn-add-cart w-full rounded-lg py-4 flex items-center justify-center" style="border-radius:0.5rem;padding:1rem;display:flex;align-items:center;justify-content:center;">
+        Finalizar compra →
+      </a>
+    </div>
+  </aside>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     POPUP DE DESCUENTO
+════════════════════════════════════════════════════ -->
+<style>
+  #gc-popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);backdrop-filter:blur(5px);z-index:99999;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;transition:opacity .4s;pointer-events:none}
+  #gc-popup-overlay.gc-visible{opacity:1;pointer-events:all}
+  #gc-popup-overlay.gc-hidden{opacity:0;pointer-events:none}
+  #gc-popup{display:grid;grid-template-columns:1fr 1fr;width:min(760px,100%);min-height:500px;background:#0a0a0a;border-radius:4px;overflow:hidden;position:relative;transform:translateY(20px) scale(.97);opacity:0;transition:transform .45s,opacity .45s;box-shadow:0 24px 80px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.06)}
+  #gc-popup-overlay.gc-visible #gc-popup{transform:translateY(0) scale(1);opacity:1}
+  #gc-close{position:absolute;top:14px;right:16px;background:none;border:none;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer;z-index:10;padding:4px 8px;transition:color .15s}
+  #gc-close:hover{color:#fff}
+  #gc-photo{position:relative;background:#111;overflow:hidden;min-height:480px}
+  #gc-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.85)}
+  #gc-form-panel{background:#0a0a0a;padding:3rem 2.2rem 2.5rem;display:flex;flex-direction:column;justify-content:center}
+  #gc-form-panel h2{font-family:'Orbitron',monospace;font-size:clamp(1.6rem,3vw,2rem);font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.02em;margin-bottom:.3rem}
+  .gc-pct{color:#A8FF00}.gc-purple{color:#7c5aff;display:block}
+  #gc-subhead{font-size:.72rem;font-weight:600;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.18em;margin-bottom:1.6rem}
+  #gc-desc{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:1.8rem}
+  .gc-label{display:block;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:.45rem}
+  #gc-email-input{width:100%;background:#1a1a2e;border:1px solid rgba(124,90,255,.4);border-radius:4px;padding:.75rem 1rem;font-family:'Poppins',sans-serif;font-size:.88rem;color:rgba(255,255,255,.75);outline:none;transition:.2s;margin-bottom:1rem;box-sizing:border-box}
+  #gc-email-input:focus{border-color:#7c5aff;box-shadow:0 0 0 3px rgba(124,90,255,.18)}
+  #gc-email-input.gc-err{border-color:#ff4f6a}
+  .gc-check-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.55rem;cursor:pointer}
+  .gc-check-row input[type=checkbox]{margin-top:2px;accent-color:#7c5aff;width:13px;height:13px;flex-shrink:0}
+  .gc-check-row span{font-size:.76rem;color:rgba(255,255,255,.5);line-height:1.4}
+  .gc-check-err{color:#ff4f6a!important;font-size:.7rem!important;display:none;margin-bottom:.4rem}
+  #gc-submit{width:100%;margin-top:1.2rem;padding:.85rem 1.5rem;background:#7c5aff;color:#fff;font-family:'Orbitron',monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;border:none;border-radius:4px;cursor:pointer;transition:.18s;box-shadow:0 4px 20px rgba(124,90,255,.4)}
+  #gc-submit:hover{background:#9b80ff}
+  #gc-skip{text-align:center;margin-top:.9rem}
+  #gc-skip button{background:none;border:none;font-size:.75rem;color:rgba(255,255,255,.35);cursor:pointer;text-decoration:underline}
+  #gc-success{display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 2.5rem;gap:1rem}
+  #gc-success.gc-visible{display:flex}
+  #gc-success-icon{width:52px;height:52px;border-radius:9999px;background:rgba(168,255,0,.12);border:2px solid rgba(168,255,0,.35);display:grid;place-items:center;color:#A8FF00}
+  #gc-success h3{font-family:'Orbitron',monospace;font-size:1.1rem;color:#fff;text-transform:uppercase}
+  #gc-success p{font-size:.85rem;color:rgba(255,255,255,.55);max-width:28ch;line-height:1.6}
+  #gc-success-code{font-family:'Orbitron',monospace;font-size:1.2rem;font-weight:700;color:#A8FF00;background:rgba(168,255,0,.08);border:1px solid rgba(168,255,0,.25);border-radius:4px;padding:.6rem 1.4rem;letter-spacing:.2em}
+  #gc-success-close{width:100%;padding:.75rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:4px;color:rgba(255,255,255,.6);font-size:.82rem;cursor:pointer;transition:.15s}
+  #gc-success-close:hover{background:rgba(255,255,255,.1);color:#fff}
+  @media(max-width:580px){#gc-popup{grid-template-columns:1fr}#gc-photo{display:none}#gc-form-panel{padding:2.5rem 1.5rem 2rem}}
+</style>
+
+<div id="gc-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="gc-title">
+  <div id="gc-popup">
+    <button id="gc-close" aria-label="Cerrar popup">&#x2715;</button>
+    <div id="gc-photo">
+      <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=600&q=85&fit=crop&crop=top" alt="Atleta entrenando" width="380" height="520" loading="eager">
+    </div>
+    <div id="gc-form-panel">
+      <div id="gc-form-state">
+        <h2 id="gc-title">CONSIGUE UN <span class="gc-pct">10%</span><span class="gc-purple">DE DESCUENTO</span></h2>
+        <p id="gc-subhead">En tu primer pedido</p>
+        <p id="gc-desc">Únete a nuestra comunidad y recibe tu código de bienvenida.</p>
+        <label class="gc-label" for="gc-email-input">Correo electrónico</label>
+        <input type="email" id="gc-email-input" placeholder="tu@gmail.com" autocomplete="email">
+        <label class="gc-check-row"><input type="checkbox" id="gc-check1"><span>He leído y acepto la <a href="legales/index.html">Política de Privacidad</a>.</span></label>
+        <span class="gc-check-err" id="gc-check1-err">Debes aceptar la política de privacidad</span>
+        <label class="gc-check-row"><input type="checkbox" id="gc-check2"><span>Acepto recibir comunicaciones comerciales de Glitch Code</span></label>
+        <button id="gc-submit" type="button">Reclamar mi descuento</button>
+        <div id="gc-skip"><button type="button" id="gc-skip-btn">No me interesa el descuento</button></div>
+      </div>
+      <div id="gc-success">
+        <div id="gc-success-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <h3>¡Bienvenido al equipo!</h3>
+        <p>Tu código de descuento está en camino.</p>
+        <span id="gc-success-code">GLITCH10</span>
+        <button id="gc-success-close" type="button">Ir a la tienda →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script>
+/* ── POPUP ── */
+(function(){
+  const overlay=document.getElementById('gc-popup-overlay'),
+        closeBtn=document.getElementById('gc-close'),
+        skipBtn=document.getElementById('gc-skip-btn'),
+        submitBtn=document.getElementById('gc-submit'),
+        emailInput=document.getElementById('gc-email-input'),
+        check1=document.getElementById('gc-check1'),
+        check1Err=document.getElementById('gc-check1-err'),
+        formState=document.getElementById('gc-form-state'),
+        successEl=document.getElementById('gc-success'),
+        successClose=document.getElementById('gc-success-close');
+
+  setTimeout(()=>overlay.classList.add('gc-visible'),800);
+
+  function close(){overlay.classList.add('gc-hidden');overlay.classList.remove('gc-visible');}
+  closeBtn.addEventListener('click',close);
+  skipBtn.addEventListener('click',close);
+  successClose.addEventListener('click',close);
+  overlay.addEventListener('click',e=>{if(e.target===overlay)close();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+
+  submitBtn.addEventListener('click',()=>{
+    const email=emailInput.value.trim();
+    const emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    const check1Ok=check1.checked;
+    let valid=true;
+    if(!emailOk){emailInput.classList.add('gc-err');valid=false;}
+    else emailInput.classList.remove('gc-err');
+    if(!check1Ok){check1Err.style.display='block';valid=false;}
+    else check1Err.style.display='none';
+    if(!valid)return;
+    submitBtn.disabled=true;submitBtn.textContent='Enviando...';
+    setTimeout(()=>{formState.style.display='none';successEl.classList.add('gc-visible');},900);
+  });
+})();
+</script>
+
+
+//Buscador
+<div id="searchOverlay" class="cart-drawer" aria-hidden="true" style="z-index: 3000;">
+  <div id="searchBackdrop" class="cart-backdrop"></div>
+  <aside class="cart-panel" style="width: min(600px, 100%);">
+    <div class="cart-header">
+      <h3>Buscador</h3>
+      <button id="searchClose" class="cart-close">✕</button>
+    </div>
+    <div class="p-6">
+      <input type="text" id="searchInput" placeholder="Busca proteínas, creatinas..." 
+             class="form-input" style="background: #1a1a1a; color: white; border-color: var(--color-secondary);">
+      
+      <div id="searchResults" class="mt-8 flex flex-col gap-4">
+        <p class="text-gray-500 text-center">Empieza a escribir para buscar...</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+
+// Modal de autenticación 
+<div id="authModal" class="gc-popup-overlay" style="display: none; align-items: center; justify-content: center; position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 9999;">
+  
+  <div style="background: #111; width: min(450px, 95%); border: 1px solid #333; border-radius: 1rem; position: relative; overflow: hidden; display: flex; flex-direction: column;">
+    
+    <div class="cart-header" style="padding: 1.5rem; border-bottom: 1px solid #222; display: flex; justify-content: space-between; align-items: center;">
+      <h3 id="authTitle" style="color: white; font-family: 'Orbitron', sans-serif; font-size: 1.2rem;">INICIAR SESIÓN</h3>
+      <button id="authClose" style="background: none; border: none; color: white; cursor: pointer; font-size: 1.5rem;">✕</button>
+    </div>
+
+    <div style="padding: 2rem;">
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+        <button type="button" style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; py: 12px; background: white; color: black; font-weight: bold; border-radius: 8px; border: none; height: 45px; cursor: pointer;">
+          <img src="https://www.svgrepo.com/show/475656/google-color.svg" style="width: 20px;"> CONTINUAR CON GOOGLE
+        </button>
+        <button type="button" style="display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; py: 12px; background: #5865F2; color: white; font-weight: bold; border-radius: 8px; border: none; height: 45px; cursor: pointer;">
+          <img src="https://www.svgrepo.com/show/353645/discord-icon.svg" style="width: 20px; filter: invert(1);"> CONTINUAR CON DISCORD
+        </button>
+      </div>
+
+      <div style="text-align: center; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px;">
+        <hr style="flex: 1; border: 0; border-top: 1px solid #333;">
+        <span style="color: #666; font-size: 0.7rem; font-weight: bold;">O CON EMAIL</span>
+        <hr style="flex: 1; border: 0; border-top: 1px solid #333;">
+      </div>
+
+      <form id="authForm" style="display: flex; flex-direction: column; gap: 1rem;">
+        <div id="registerFields" style="display: none;">
+          <input type="text" placeholder="Nombre completo" style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 8px;">
+        </div>
+        <input type="email" placeholder="Email" required style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 8px;">
+        <input type="password" placeholder="Contraseña" required style="width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; color: white; border-radius: 8px;">
+        
+        <button type="submit" class="btn-add-cart" style="width: 100%; padding: 15px; border-radius: 8px; font-weight: bold; margin-top: 10px;">
+          ENTRAR AL SISTEMA
+        </button>
+      </form>
+
+      <div style="margin-top: 1.5rem; text-align: center; color: #888; font-size: 0.8rem;">
+        <p id="authToggleText">¿No tienes cuenta? <button type="button" id="switchToRegister" style="color: #007BFF; background: none; border: none; font-weight: bold; cursor: pointer; text-decoration: underline;">Regístrate gratis</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

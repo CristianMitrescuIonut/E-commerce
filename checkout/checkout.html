@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es" data-root="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finalizar compra | Glitch Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    /* ── Estilos específicos del checkout ── */
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .checkout-grid { grid-template-columns: 1.2fr 1fr; }
+    }
+
+    /* Progreso del checkout */
+    .checkout-progress {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .progress-step {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .85rem;
+      font-weight: 600;
+      color: #aaa;
+    }
+
+    .progress-step.done   { color: var(--color-secondary); }
+    .progress-step.active { color: var(--color-primary); }
+
+    .progress-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 2px solid currentColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .progress-sep { width: 30px; height: 2px; background: #ddd; border-radius: 2px; }
+
+    /* Métodos de pago */
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: .75rem;
+    }
+
+    .payment-method-btn {
+      border: 2px solid #e5e5e5;
+      border-radius: .75rem;
+      padding: .9rem .75rem;
+      background: #fff;
+      cursor: pointer;
+      transition: .2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      font-weight: 600;
+      font-size: .82rem;
+      color: #333;
+      min-height: 75px;
+      text-align: center;
+    }
+
+    .payment-method-btn:hover { border-color: var(--color-secondary); transform: translateY(-1px); }
+    .payment-method-btn.selected { border-color: var(--color-secondary); background: rgba(0,123,255,.05); box-shadow: 0 0 0 1px var(--color-secondary); }
+
+    .payment-method-btn .pm-icon { font-size: 1.4rem; }
+
+    /* Formulario de tarjeta */
+    #card-form { margin-top: 1.25rem; display: none; }
+    #card-form.visible { display: block; }
+
+    /* Resumen del pedido */
+    .order-summary {
+      background: #fff;
+      border-radius: .8rem;
+      border: 1px solid #eee;
+      box-shadow: 0 0 30px rgba(0,0,0,.08);
+      overflow: hidden;
+      position: sticky;
+      top: 6rem;
+    }
+
+    .summary-header {
+      background: var(--color-primary);
+      color: #fff;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .summary-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .summary-body { padding: 1.25rem 1.5rem; }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .5rem 0;
+      font-size: .9rem;
+      color: #555;
+      border-bottom: 1px solid #f5f5f5;
+    }
+
+    .summary-line:last-child { border-bottom: none; }
+    .summary-line.total { font-weight: 700; font-size: 1.1rem; color: #111; padding-top: 1rem; }
+    .summary-line .green { color: #16a34a; font-weight: 600; }
+
+    /* Botón final de compra */
+    .confirm-btn {
+      width: 100%;
+      background: var(--color-accent);
+      color: #000;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 1.1rem 2rem;
+      border: none;
+      border-radius: .75rem;
+      cursor: pointer;
+      transition: .2s ease;
+      margin-top: 1.5rem;
+    }
+
+    .confirm-btn:hover { background: #bfff40; transform: translateY(-2px); box-shadow: 0 0 20px rgba(168,255,0,.4); }
+
+    /* Confianza */
+    .trust-badges {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #f0f0f0;
+      font-size: .78rem;
+      color: #888;
+    }
+
+    .trust-badge { display: flex; align-items: center; gap: .4rem; }
+
+    /* Overlay de confirmación */
+    #order-confirmed {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.75);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #order-confirmed.show { display: flex; }
+
+    .confirmed-card {
+      background: var(--color-primary);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 1.5rem;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      max-width: 480px;
+      width: 90%;
+    }
+
+    .confirmed-icon {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      background: rgba(168,255,0,.12);
+      border: 2px solid rgba(168,255,0,.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      animation: pop .5s cubic-bezier(.16,1,.3,1);
+    }
+
+    @keyframes pop { from { transform:scale(.3); opacity:0; } to { transform:scale(1); opacity:1; } }
+
+    /* Añade esto dentro de las etiquetas <style> de checkout.html */
+.checkout-grid input, 
+.checkout-grid select, 
+.checkout-grid textarea {
+    color: #000000 !important; /* Fuerza el texto a negro */
+    background-color: #ffffff !important; /* Asegura fondo blanco si fuera necesario */
+}
+
+/* Opcional: Para que el texto que escribes se vea bien mientras tecleas */
+input:focus, select:focus {
+    color: #000000 !important;
+    outline: 2px solid #007BFF;
+}
+
+/* Estilo para el placeholder (el texto de ejemplo que sale antes de escribir) */
+input::placeholder {
+    color: #666666 !important;
+}
+  </style>
+</head>
+<body>
+
+<!-- HEADER simplificado para checkout -->
+<header class="header-fixed">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">GLITCH CODE</a>
+    <!-- Progreso en header -->
+    <div class="checkout-progress" style="margin:0">
+      <div class="progress-step done">
+        <div class="progress-num">✓</div>
+        <span class="hidden md:inline">Carrito</span>
+      </div>
+      <div class="progress-sep"></div>
+      <div class="progress-step active">
+        <div class="progress-num">2</div>
+        <span class="hidden md:inline">Datos</span>
+      </div>
+      <div class="progress-sep"></div>
+      <div class="progress-step">
+        <div class="progress-num">3</div>
+        <span class="hidden md:inline">Pago</span>
+      </div>
+      <div class="progress-sep"></div>
+      <div class="progress-step">
+        <div class="progress-num">4</div>
+        <span class="hidden md:inline">Confirmación</span>
+      </div>
+    </div>
+    <!-- Candado seguridad -->
+    <div style="display:flex;align-items:center;gap:.5rem;color:#fff;font-size:.8rem;font-weight:600;">
+      🔒 <span class="hidden sm:inline">Pago seguro SSL</span>
+    </div>
+  </div>
+</header>
+
+<main style="padding-bottom:4rem;">
+
+  <div class="checkout-grid">
+
+    <!-- ════════════════════════════════════════
+         COLUMNA IZQUIERDA: DATOS + PAGO
+    ═════════════════════════════════════════ -->
+    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+      <!-- PASO 1: Datos personales -->
+      <div class="checkout-section">
+        <div class="checkout-step-header">
+          <div class="checkout-step-num">1</div>
+          <h2 class="checkout-title" style="margin:0;border:none;padding:0">Datos personales</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="form-group">
+            <label class="form-label" for="co-nombre">Nombre</label>
+            <input class="form-input" type="text" id="co-nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="co-apellidos">Apellidos</label>
+            <input class="form-input" type="text" id="co-apellidos" placeholder="Tus apellidos" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="co-email">Email</label>
+            <input class="form-input" type="email" id="co-email" placeholder="tu@email.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="co-telefono">Teléfono</label>
+            <input class="form-input" type="tel" id="co-telefono" placeholder="+34 600 000 000">
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 2: Dirección de envío -->
+      <div class="checkout-section">
+        <div class="checkout-step-header">
+          <div class="checkout-step-num">2</div>
+          <h2 class="checkout-title" style="margin:0;border:none;padding:0">Dirección de envío</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="form-group" style="grid-column:1/-1">
+            <label class="form-label" for="co-direccion">Dirección</label>
+            <input class="form-input" type="text" id="co-direccion" placeholder="Calle, número, piso..." required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="co-cp">Código postal</label>
+            <input class="form-input" type="text" id="co-cp" placeholder="28001" pattern="[0-9]{5}" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="co-ciudad">Ciudad</label>
+            <input class="form-input" type="text" id="co-ciudad" placeholder="Madrid" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="co-provincia">Provincia</label>
+            <select class="form-select" id="co-provincia">
+              <option value="">Selecciona...</option>
+              <option>Madrid</option><option>Barcelona</option><option>Valencia</option>
+              <option>Zaragoza</option><option>Sevilla</option><option>Málaga</option>
+              <option>Bilbao</option><option>Otras</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="co-pais">País</label>
+            <select class="form-select" id="co-pais">
+              <option value="es">España</option>
+              <option value="pt">Portugal</option>
+              <option value="fr">Francia</option>
+              <option value="de">Alemania</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Opciones de envío -->
+        <div style="margin-top:1.25rem">
+          <h3 style="font-weight:600;margin-bottom:.75rem;font-size:.95rem">Método de envío</h3>
+          <div style="display:flex;flex-direction:column;gap:.5rem">
+            <label style="display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem;border:2px solid var(--color-secondary);border-radius:.75rem;cursor:pointer;background:rgba(0,123,255,.04)">
+              <div style="display:flex;align-items:center;gap:.75rem">
+                <input type="radio" name="shipping" value="standard" checked style="accent-color:var(--color-secondary)">
+                <span>🚚 Envío estándar (24-48h)</span>
+              </div>
+              <span style="font-weight:700;color:#16a34a">GRATIS</span>
+            </label>
+            <label style="display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem;border:2px solid #e5e5e5;border-radius:.75rem;cursor:pointer">
+              <div style="display:flex;align-items:center;gap:.75rem">
+                <input type="radio" name="shipping" value="express" style="accent-color:var(--color-secondary)">
+                <span>⚡ Envío express (mismo día si antes de 14h)</span>
+              </div>
+              <span style="font-weight:700">+4.99€</span>
+            </label>
+            <label style="display:flex;align-items:center;justify-content:space-between;padding:.9rem 1rem;border:2px solid #e5e5e5;border-radius:.75rem;cursor:pointer">
+              <div style="display:flex;align-items:center;gap:.75rem">
+                <input type="radio" name="shipping" value="pickup" style="accent-color:var(--color-secondary)">
+                <span>🏪 Recogida en tienda (Zaragoza)</span>
+              </div>
+              <span style="font-weight:700;color:#16a34a">GRATIS</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASO 3: Método de pago -->
+      <div class="checkout-section">
+        <div class="checkout-step-header">
+          <div class="checkout-step-num">3</div>
+          <h2 class="checkout-title" style="margin:0;border:none;padding:0">Método de pago</h2>
+        </div>
+
+        <!-- Grid de métodos de pago -->
+        <div class="payment-grid">
+          <!-- Tarjeta -->
+          <button class="payment-method-btn selected" onclick="selectPayment(this,'card')" type="button">
+            <span class="pm-icon">💳</span>
+            <span>Tarjeta</span>
+          </button>
+          <!-- PayPal -->
+          <button class="payment-method-btn" onclick="selectPayment(this,'paypal')" type="button">
+            <span class="pm-icon">🅿️</span>
+            <span>PayPal</span>
+          </button>
+          <!-- Google Pay -->
+          <button class="payment-method-btn" onclick="selectPayment(this,'gpay')" type="button">
+            <span class="pm-icon">🔵</span>
+            <span>Google Pay</span>
+          </button>
+          <!-- Apple Pay -->
+          <button class="payment-method-btn" onclick="selectPayment(this,'applepay')" type="button">
+            <span class="pm-icon">🍎</span>
+            <span>Apple Pay</span>
+          </button>
+          <!-- Bizum -->
+          <button class="payment-method-btn" onclick="selectPayment(this,'bizum')" type="button">
+            <span class="pm-icon">📱</span>
+            <span>Bizum</span>
+          </button>
+          <!-- Transferencia -->
+          <button class="payment-method-btn" onclick="selectPayment(this,'transfer')" type="button">
+            <span class="pm-icon">🏦</span>
+            <span>Transferencia</span>
+          </button>
+          <!-- Contra reembolso -->
+          <button class="payment-method-btn" onclick="selectPayment(this,'cod')" type="button">
+            <span class="pm-icon">💶</span>
+            <span>Contra reembolso</span>
+          </button>
+          <!-- Klarna / BNPL -->
+          <button class="payment-method-btn" onclick="selectPayment(this,'klarna')" type="button">
+            <span class="pm-icon">🔆</span>
+            <span>Klarna (3x)</span>
+          </button>
+        </div>
+
+        <!-- Formulario de tarjeta (visible por defecto) -->
+        <div id="card-form" class="visible">
+          <div style="display:flex;gap:.5rem;margin-bottom:.75rem;flex-wrap:wrap">
+            <span style="font-size:.78rem;font-weight:700;letter-spacing:.5px;color:#555">TARJETAS ACEPTADAS</span>
+            <span style="background:#1a1f71;color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:4px">VISA</span>
+            <span style="background:#eb001b;color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:4px">MC</span>
+            <span style="background:#007cc3;color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:4px">AMEX</span>
+            <span style="background:#003087;color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:4px">DISCOVER</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="co-cardname">Nombre en la tarjeta</label>
+            <input class="form-input" type="text" id="co-cardname" placeholder="NOMBRE APELLIDO" style="text-transform:uppercase">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="co-cardnum">Número de tarjeta</label>
+            <div style="position:relative">
+              <input class="form-input" type="text" id="co-cardnum" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)" style="padding-right:3rem">
+              <span id="card-brand-icon" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);font-size:1.2rem">💳</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="form-group">
+              <label class="form-label" for="co-expiry">Caducidad</label>
+              <input class="form-input" type="text" id="co-expiry" placeholder="MM/AA" maxlength="5" oninput="formatExpiry(this)">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="co-cvv">CVV / CVC</label>
+              <div style="position:relative">
+                <input class="form-input" type="text" id="co-cvv" placeholder="123" maxlength="4" oninput="this.value=this.value.replace(/\D/g,'')">
+                <span title="Los 3-4 dígitos del reverso de la tarjeta" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);cursor:help;color:#aaa">❓</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Checkbox guardar tarjeta -->
+          <label style="display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:#666;cursor:pointer;margin-top:.5rem">
+            <input type="checkbox" style="accent-color:var(--color-secondary)">
+            Guardar tarjeta para futuras compras (encriptada y segura)
+          </label>
+        </div>
+
+        <!-- Mensaje alternativo para otros métodos -->
+        <div id="alt-payment-msg" style="display:none;margin-top:1rem;padding:1rem;background:#f8f9ff;border-radius:.75rem;border:1px solid #e5e7eb;font-size:.9rem;color:#555;line-height:1.5"></div>
+
+        <!-- Código de descuento -->
+        <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid #f0f0f0">
+          <label class="form-label">Código de descuento</label>
+          <div style="display:flex;gap:.5rem">
+            <input class="form-input" type="text" id="co-coupon" placeholder="GLITCH10" style="flex:1">
+            <button onclick="applyCoupon()" type="button" style="background:var(--color-primary);color:#fff;padding:.9rem 1.25rem;border-radius:.5rem;font-weight:600;white-space:nowrap;font-size:.88rem">Aplicar</button>
+          </div>
+          <div id="coupon-msg" style="font-size:.82rem;margin-top:.4rem"></div>
+        </div>
+      </div>
+
+      <!-- PASO 4: Confirmación y política -->
+      <div class="checkout-section">
+        <div class="checkout-step-header">
+          <div class="checkout-step-num">4</div>
+          <h2 class="checkout-title" style="margin:0;border:none;padding:0">Confirmar pedido</h2>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:.75rem;font-size:.85rem;color:#555">
+          <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer">
+            <input type="checkbox" id="terms-check" style="margin-top:3px;accent-color:var(--color-secondary)">
+            <span>He leído y acepto los <a href="../legales/index.html#condiciones" style="color:var(--color-secondary);font-weight:600">Términos y Condiciones</a> y la <a href="../legales/index.html#privacidad" style="color:var(--color-secondary);font-weight:600">Política de Privacidad</a> de Glitch Code.</span>
+          </label>
+          <label style="display:flex;align-items:flex-start;gap:.5rem;cursor:pointer">
+            <input type="checkbox" style="margin-top:3px;accent-color:var(--color-secondary)">
+            <span>Quiero recibir ofertas exclusivas y novedades de Glitch Code por email.</span>
+          </label>
+        </div>
+
+        <div id="terms-error" style="display:none;color:#dc2626;font-size:.82rem;margin-top:.5rem">⚠ Debes aceptar los términos para continuar.</div>
+
+        <!-- Botón de confirmar -->
+        <button class="confirm-btn" type="button" onclick="confirmOrder()">
+          🔒 CONFIRMAR Y PAGAR
+        </button>
+
+        <!-- Badges de confianza -->
+        <div class="trust-badges">
+          <div class="trust-badge">🔒 SSL 256-bit</div>
+          <div class="trust-badge">✅ Pago seguro</div>
+          <div class="trust-badge">↩ Devolución 14 días</div>
+          <div class="trust-badge">📦 Envío 24-48h</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         COLUMNA DERECHA: RESUMEN DEL PEDIDO
+    ═════════════════════════════════════════ -->
+    <div>
+      <div class="order-summary">
+        <div class="summary-header">
+          <h3>Resumen del pedido</h3>
+          <a href="../producto/pr.html" style="color:rgba(255,255,255,.7);font-size:.8rem;">← Seguir comprando</a>
+        </div>
+
+        <!-- Productos del carrito (se rellena con JS) -->
+        <div class="summary-body" id="checkout-items">
+          <!-- Producto de ejemplo mientras el carrito está vacío -->
+          <div class="order-summary-item">
+            <img src="../assets/img/imgproteina.png" alt="Proteína Iso-Tech">
+            <div style="flex:1">
+              <div style="font-weight:700;font-size:.9rem">Proteína Iso-Tech</div>
+              <div style="font-size:.8rem;color:#888">Chocolate Glitch · 1kg</div>
+            </div>
+            <div style="font-weight:700;color:#111">45.99€</div>
+          </div>
+        </div>
+
+        <!-- Líneas del resumen -->
+        <div class="summary-body" style="border-top:1px solid #f0f0f0">
+          <div class="summary-line"><span>Subtotal</span><span id="checkout-subtotal">45.99€</span></div>
+          <div class="summary-line"><span>Envío</span><span class="green">GRATIS</span></div>
+          <div class="summary-line" id="discount-line" style="display:none"><span>Descuento (GLITCH10)</span><span class="green" id="discount-val">−4.60€</span></div>
+          <div class="summary-line total"><span>TOTAL</span><span id="checkout-total">45.99€</span></div>
+        </div>
+
+        <!-- Info extra -->
+        <div style="padding:1rem 1.5rem;background:#f8f9ff;border-top:1px solid #eee;font-size:.82rem;color:#666;line-height:1.5">
+          🚚 Envío gratuito para pedidos &gt;39€<br>
+          ↩ Devolución gratuita hasta 14 días<br>
+          📞 Soporte: <a href="tel:+34976000000" style="color:var(--color-secondary)">+34 976 000 000</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- OVERLAY DE PEDIDO CONFIRMADO -->
+<div id="order-confirmed">
+  <div class="confirmed-card">
+    <div class="confirmed-icon">✅</div>
+    <h2 style="font-family:var(--font-heading);font-size:1.4rem;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:.75rem">¡Pedido confirmado!</h2>
+    <p style="color:rgba(255,255,255,.7);line-height:1.6;font-size:.9rem;margin-bottom:1rem">
+      Tu pedido <strong style="color:var(--color-accent)" id="order-ref">#GC-2026-001</strong> ha sido recibido correctamente.
+      Recibirás un email de confirmación en breve.
+    </p>
+    <p style="color:rgba(255,255,255,.55);font-size:.82rem;margin-bottom:2rem">Tiempo estimado de entrega: <strong style="color:#fff">24-48h</strong></p>
+    <a href="../index.html" style="display:block;width:100%;background:var(--color-accent);color:#000;font-family:var(--font-heading);font-weight:800;padding:1rem;border-radius:.75rem;text-align:center;text-transform:uppercase;letter-spacing:1px;text-decoration:none">
+      Volver a la tienda →
+    </a>
+  </div>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script>
+/* ── CHECKOUT JS ──────────────────────────────────────── */
+
+let selectedPaymentMethod = 'card';
+let couponApplied = false;
+
+/* Seleccionar método de pago */
+function selectPayment(btn, method) {
+  // Resetea todos los botones
+  document.querySelectorAll('.payment-method-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selectedPaymentMethod = method;
+
+  const cardForm = document.getElementById('card-form');
+  const altMsg   = document.getElementById('alt-payment-msg');
+
+  const messages = {
+    paypal:   '🅿️ Serás redirigido a PayPal para completar el pago de forma segura.',
+    gpay:     '🔵 Se abrirá Google Pay para autenticar y confirmar el pago.',
+    applepay: '🍎 Se abrirá Apple Pay para autenticar y confirmar el pago.',
+    bizum:    '📱 Introduce tu número de teléfono asociado a Bizum para recibir la solicitud de pago.',
+    transfer: '🏦 Recibirás los datos de la cuenta bancaria por email tras confirmar. El pedido se procesa al recibir la transferencia (1-2 días hábiles).',
+    cod:      '💶 Pagarás al repartidor al recibir el pedido. Se aplica un cargo adicional de 2,99€ por gestión.',
+    klarna:   '🔆 Divide tu pago en 3 cuotas sin intereses con Klarna. Selecciona este método y serás dirigido a Klarna para activarlo.',
+  };
+
+  if (method === 'card') {
+    cardForm.classList.add('visible');
+    altMsg.style.display = 'none';
+  } else {
+    cardForm.classList.remove('visible');
+    altMsg.style.display = 'block';
+    altMsg.textContent = messages[method] || '';
+  }
+}
+
+/* Formato de número de tarjeta */
+function formatCard(input) {
+  let val = input.value.replace(/\D/g, '').slice(0, 16);
+  input.value = val.replace(/(.{4})/g, '$1 ').trim();
+
+  // Detectar tipo de tarjeta
+  const icon = document.getElementById('card-brand-icon');
+  if (val.startsWith('4')) icon.textContent = '💙'; // Visa
+  else if (/^5[1-5]/.test(val)) icon.textContent = '🔴'; // Mastercard
+  else if (/^3[47]/.test(val)) icon.textContent = '🟢'; // Amex
+  else icon.textContent = '💳';
+}
+
+/* Formato de fecha de caducidad */
+function formatExpiry(input) {
+  let val = input.value.replace(/\D/g, '').slice(0, 4);
+  if (val.length >= 2) val = val.slice(0, 2) + '/' + val.slice(2);
+  input.value = val;
+}
+
+/* Aplicar cupón */
+function applyCoupon() {
+  const code = document.getElementById('co-coupon').value.trim().toUpperCase();
+  const msg  = document.getElementById('coupon-msg');
+
+  if (code === 'GLITCH10') {
+    couponApplied = true;
+    msg.textContent = '✅ Cupón aplicado: 10% de descuento';
+    msg.style.color = '#16a34a';
+    document.getElementById('discount-line').style.display = 'flex';
+    updateTotal();
+  } else if (code === '') {
+    msg.textContent = '';
+  } else {
+    couponApplied = false;
+    msg.textContent = '❌ Código no válido. Prueba con GLITCH10.';
+    msg.style.color = '#dc2626';
+  }
+}
+
+/* Actualizar total con descuento */
+function updateTotal() {
+  const base = 45.99;
+  const discount = couponApplied ? base * 0.10 : 0;
+  const total = (base - discount).toFixed(2);
+  const discountEl = document.getElementById('discount-val');
+  const totalEl    = document.getElementById('checkout-total');
+  if (discountEl) discountEl.textContent = '−' + discount.toFixed(2) + '€';
+  if (totalEl)    totalEl.textContent = total + '€';
+}
+
+/* Confirmar pedido */
+function confirmOrder() {
+  const termsCheck = document.getElementById('terms-check');
+  const termsError = document.getElementById('terms-error');
+
+  if (!termsCheck.checked) {
+    termsError.style.display = 'block';
+    termsCheck.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  termsError.style.display = 'none';
+
+  // Simula procesamiento
+  const btn = document.querySelector('.confirm-btn');
+  btn.textContent = '⏳ Procesando pago...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    // Genera referencia de pedido aleatoria
+    const ref = '#GC-2026-' + Math.floor(1000 + Math.random() * 9000);
+    document.getElementById('order-ref').textContent = ref;
+
+    // Muestra overlay de confirmación
+    document.getElementById('order-confirmed').classList.add('show');
+
+    // Limpia el carrito del localStorage
+    localStorage.removeItem('gc_cart');
+  }, 1800);
+}
+
+/* Rellenar resumen con items del carrito */
+(function populateCheckout() {
+  const items = JSON.parse(localStorage.getItem('gc_cart') || '[]');
+  if (items.length === 0) return; // usa el ejemplo por defecto
+
+  const container = document.getElementById('checkout-items');
+  container.innerHTML = items.map(item => `
+    <div class="order-summary-item">
+      <img src="${item.img}" alt="${item.name}">
+      <div style="flex:1">
+        <div style="font-weight:700;font-size:.9rem">${item.name}</div>
+        <div style="font-size:.8rem;color:#888">${item.flavor} · ${item.size} · ×${item.qty}</div>
+      </div>
+      <div style="font-weight:700;color:#111">${(item.price * item.qty).toFixed(2)}€</div>
+    </div>
+  `).join('');
+
+  const total = items.reduce((s, i) => s + i.price * i.qty, 0).toFixed(2);
+  document.getElementById('checkout-subtotal').textContent = total + '€';
+  document.getElementById('checkout-total').textContent    = total + '€';
+})();
+</script>
+</body>
+</html>

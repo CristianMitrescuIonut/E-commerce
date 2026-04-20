@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es" data-root="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Información Legal | Glitch Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<header class="header-fixed">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">GLITCH CODE</a>
+    <nav class="header-nav">
+      <a href="../index.html" class="nav-link">Inicio</a>
+      <div class="nav-item">
+        <a href="../producto/producto.html" class="nav-link">Producto ▾</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-label">Proteínas</div><a href="../producto/producto.html#proteinas">Whey Isolate</a>
+          <div class="dropdown-divider"></div>
+          <div class="dropdown-label">Fuerza</div><a href="../producto/producto.html#creatinas">Creatina</a>
+          <div class="dropdown-divider"></div>
+          <div class="dropdown-label">Salud</div><a href="../producto/producto.html#vitaminas">Vitaminas</a>
+          <a href="../producto/producto.html#complementos">Complementos</a>
+          <div class="dropdown-divider"></div>
+          <a href="../producto/producto.html#snacks">Snacks</a>
+          <div class="dropdown-divider"></div>
+          <a href="../producto/producto.html" style="color:var(--color-accent);font-weight:700;">⚡ Ver todos</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../blog/blog.html" class="nav-link">Blog ▾</a>
+        <div class="dropdown-menu"><a href="../blog/blog.html#guias">Guías</a><a href="../blog/blog.html#nutricion">Nutrición</a><a href="../blog/blog.html#recuperacion">Recuperación</a></div>
+      </div>
+      <div class="nav-item">
+        <a href="../contacto/contacto.html" class="nav-link">Contacto ▾</a>
+        <div class="dropdown-menu"><a href="../contacto/contacto.html#formulario">Enviar mensaje</a><a href="../contacto/contacto.html#ubicacion">Ubicación</a></div>
+      </div>
+      <div class="nav-item">
+        <a href="legales.html" class="nav-link" style="color:var(--color-secondary)">Legales ▾</a>
+        <div class="dropdown-menu">
+          <a href="#aviso">Aviso legal</a>
+          <a href="#privacidad">Privacidad</a>
+          <a href="#cookies">Cookies</a>
+          <a href="#condiciones">Condiciones de venta</a>
+        </div>
+      </div>
+    </nav>
+    <div class="header-icons">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <button id="wishlistToggle" class="cart-toggle" aria-label="Wishlist" type="button"><svg class="icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg><span id="wishlistCount" class="cart-count" style="display:none">0</span></button>
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <button id="cartToggle" class="cart-toggle" aria-label="Carrito" type="button"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span id="cartCount" class="cart-count">0</span></button>
+      <button id="hamburgerBtn" class="hamburger-btn" aria-label="Menú" type="button"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav id="mobileNav" class="mobile-nav">
+    <a href="../index.html">Inicio</a>
+    <a href="../producto/producto.html">Producto</a>
+    <a href="../blog/blog.html">Blog</a>
+    <a href="../contacto/contacto.html">Contacto</a>
+    <a href="legales.html">Legales</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="legal-hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">INFORMACIÓN LEGAL</h1>
+      <p class="hero-subtitle">Aviso legal, política de privacidad, cookies y condiciones generales de venta de Glitch Code.</p>
+    </div>
+  </section>
+
+  <!-- CONTENIDO LEGAL CON TABS -->
+  <section class="section-shell">
+    <div class="legal-shell" style="margin:0">
+      <div class="legal-header">
+        <h2 class="legal-title">Textos legales de Glitch Code</h2>
+        <p class="legal-subtitle">Aquí encontrarás la información legal principal de la marca en un solo lugar.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="legal-tabs-row">
+        <button class="legal-tab active" data-tab="aviso"><span class="legal-tab-bullet"></span>Aviso legal</button>
+        <button class="legal-tab" data-tab="privacidad"><span class="legal-tab-bullet"></span>Privacidad</button>
+        <button class="legal-tab" data-tab="cookies"><span class="legal-tab-bullet"></span>Cookies</button>
+        <button class="legal-tab" data-tab="condiciones"><span class="legal-tab-bullet"></span>Condiciones</button>
+      </div>
+
+      <!-- Paneles -->
+      <div class="legal-body">
+
+        <!-- Aviso legal -->
+        <section id="panel-aviso" class="legal-panel active">
+          <h2>Aviso legal</h2>
+          <div class="legal-highlight">Este aviso legal regula el acceso, navegación y uso del sitio web de Glitch Code.</div>
+          <h3>Identificación del titular</h3>
+          <p>Titular: Glitch Code.<br>Domicilio: Calle Gran Vía 45, 50006 Zaragoza, España.<br>Correo: info@glitchcode.es<br>Teléfono: +34 976 000 000</p>
+          <h3>Condiciones de uso</h3>
+          <p>El acceso al sitio implica la aceptación de estas condiciones. El usuario se compromete a hacer un uso diligente, correcto y lícito de los contenidos y servicios.</p>
+          <h3>Propiedad intelectual</h3>
+          <p>Las marcas, nombres comerciales, logotipos, imágenes, descripciones de producto y demás contenidos son titularidad de Glitch Code o de terceros autorizados. Queda prohibida su reproducción sin autorización expresa.</p>
+          <h3>Responsabilidad</h3>
+          <p>Glitch Code no se responsabiliza de los daños derivados del uso incorrecto de los productos, de la información suministrada por terceros ni de los fallos técnicos ajenos a su control.</p>
+        </section>
+
+        <!-- Privacidad -->
+        <section id="panel-privacidad" class="legal-panel">
+          <h2 id="privacidad">Política de privacidad</h2>
+          <div class="legal-highlight">Glitch Code trata tus datos de forma responsable, transparente y alineada con el RGPD y la LOPDGDD.</div>
+          <h3>Responsable del tratamiento</h3>
+          <p>Glitch Code — Calle Gran Vía 45, 50006 Zaragoza — privacy@glitchcode.es</p>
+          <h3>Datos tratados</h3>
+          <ul>
+            <li>Datos identificativos y de contacto (nombre, email, teléfono).</li>
+            <li>Datos de compra, envío y soporte.</li>
+            <li>Datos de navegación y preferencias técnicas.</li>
+          </ul>
+          <h3>Finalidades</h3>
+          <ul>
+            <li>Gestionar pedidos y pagos.</li>
+            <li>Atender consultas y devoluciones.</li>
+            <li>Mejorar la experiencia de usuario y analítica web.</li>
+            <li>Enviar comunicaciones comerciales (solo con consentimiento expreso).</li>
+          </ul>
+          <h3>Base jurídica</h3>
+          <p>Ejecución del contrato, cumplimiento de obligaciones legales y consentimiento del interesado.</p>
+          <h3>Conservación de datos</h3>
+          <p>Los datos se conservarán durante el tiempo necesario para cumplir con las finalidades indicadas y, en su caso, las obligaciones legales aplicables.</p>
+          <h3>Derechos</h3>
+          <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a privacy@glitchcode.es. Tienes derecho a reclamar ante la AEPD.</p>
+        </section>
+
+        <!-- Cookies -->
+        <section id="panel-cookies" class="legal-panel">
+          <h2 id="cookies">Política de cookies</h2>
+          <div class="legal-highlight">Utilizamos cookies propias y de terceros para el correcto funcionamiento, análisis y personalización de la web.</div>
+          <h3>¿Qué son las cookies?</h3>
+          <p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo al visitar una web. Permiten recordar preferencias y mejorar la experiencia de navegación.</p>
+          <h3>Tipos de cookies que usamos</h3>
+          <ul>
+            <li><strong>Necesarias:</strong> imprescindibles para el funcionamiento de la tienda (carrito, sesión).</li>
+            <li><strong>Analíticas:</strong> para entender cómo los usuarios interactúan con la web (Google Analytics).</li>
+            <li><strong>Funcionales:</strong> para recordar preferencias como idioma o sabores seleccionados.</li>
+            <li><strong>Marketing:</strong> para personalización de anuncios y remarketing.</li>
+          </ul>
+          <h3>Gestión de cookies</h3>
+          <p>Puedes aceptar o rechazar las cookies no esenciales desde el banner de cookies o configurando tu navegador. Ten en cuenta que rechazar algunas cookies puede afectar la funcionalidad de la tienda.</p>
+        </section>
+
+        <!-- Condiciones -->
+        <section id="panel-condiciones" class="legal-panel">
+          <h2 id="condiciones">Condiciones generales de venta</h2>
+          <div class="legal-highlight">Estas condiciones regulan las compras realizadas en la tienda online de Glitch Code.</div>
+          <h3>Proceso de compra</h3>
+          <p>El cliente selecciona los productos, los añade al carrito, completa sus datos personales y de envío, elige el método de pago y confirma el pedido tras revisar el resumen final. El contrato se formaliza en el momento de la confirmación del pago.</p>
+          <h3>Precios y disponibilidad</h3>
+          <p>Todos los precios se muestran en euros e incluyen el IVA aplicable. Glitch Code se reserva el derecho de modificar precios sin previo aviso. La disponibilidad de productos se indica en la ficha de cada artículo.</p>
+          <h3>Gastos de envío</h3>
+          <p>Envío gratuito en pedidos superiores a 39€. Para pedidos menores, se aplicará un cargo de 3,99€. Los plazos de entrega son orientativos y pueden verse afectados por causas de fuerza mayor.</p>
+          <h3>Formas de pago</h3>
+          <ul>
+            <li>Tarjeta bancaria (Visa, Mastercard, American Express)</li>
+            <li>PayPal</li>
+            <li>Google Pay</li>
+            <li>Apple Pay</li>
+            <li>Transferencia bancaria</li>
+          </ul>
+          <h3>Derecho de desistimiento</h3>
+          <p>El consumidor podrá ejercer el derecho de desistimiento dentro de los 14 días naturales siguientes a la recepción del producto, siempre que esté sin abrir y en perfecto estado. Los suplementos alimenticios abiertos quedan excluidos por razones de protección de la salud.</p>
+          <h3>Garantías</h3>
+          <p>Todos los productos cuentan con la garantía legal de conformidad prevista en la normativa vigente. Ante cualquier defecto, contacta con soporte@glitchcode.es.</p>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="background: #0a0a0a; color: white; padding: 60px 20px 30px 20px; margin-top: 50px; border-top: 1px solid #222; font-family: 'Poppins', sans-serif;">
+  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+    
+    <div>
+      <h4 style="font-family: 'Orbitron', sans-serif; color: #007BFF; margin-bottom: 20px; font-size: 1rem; text-transform: uppercase;">Productos</h4>
+      <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <li><a href="../producto/producto.html#proteinas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Proteínas</a></li>
+        <li><a href="../producto/producto.html#creatinas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Creatinas</a></li>
+        <li><a href="../producto/producto.html#vitaminas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Vitaminas</a></li>
+        <li><a href="../producto/producto.html#complementos" style="color: #888; text-decoration: none; font-size: 0.9rem;">Complementos</a></li>
+        <li><a href="../producto/producto.html#suplementos" style="color: #888; text-decoration: none; font-size: 0.9rem;">Suplementos</a></li>
+        <li><a href="../producto/producto.html#snacks" style="color: #888; text-decoration: none; font-size: 0.9rem;">Snacks</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 style="font-family: 'Orbitron', sans-serif; color: #007BFF; margin-bottom: 20px; font-size: 1rem; text-transform: uppercase;">Información</h4>
+      <ul style="list-style: none; padding: 0; line-height: 2;">
+        <li><a href="../contacto/contacto.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Contacto</a></li>
+        <li><a href="../blog/blog.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Blog Nutrición</a></li>
+        <li><a href="../legales/legales.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Aviso Legal / Privacidad</a></li>
+      </ul>
+    </div>
+
+    <div style="text-align: right;">
+      <div style="font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 900; color: white; margin-bottom: 10px;">
+        <a href="../index.html" style="color: white; text-decoration: none;">GLITCH <span style="color: #007BFF;">CODE</span></a>
+      </div>
+      <p style="color: #555; font-size: 0.85rem;">Nutrición Deportiva Avanzada.</p>
+    </div>
+  </div>
+</footer>
+
+<div id="wishlistDrawer" class="cart-drawer" aria-hidden="true"><div id="wishlistBackdrop" class="cart-backdrop"></div><aside class="cart-panel"><div class="cart-header"><h3>❤ Lista de deseos</h3><button id="wishlistClose" class="cart-close" type="button">✕</button></div><div id="wishlistItems" class="cart-items"><p class="cart-empty">Sin favoritos aún.</p></div></aside></div>
+<div id="cartDrawer" class="cart-drawer" aria-hidden="true"><div id="cartBackdrop" class="cart-backdrop"></div><aside class="cart-panel"><div class="cart-header"><h3>Tu carrito</h3><button id="cartClose" class="cart-close" type="button">✕</button></div><div id="cartItems" class="cart-items"><p class="cart-empty">Tu carrito está vacío.</p></div><div class="cart-footer"><div class="cart-total-row"><span>Total</span><strong><span id="cartTotal">0.00</span> €</strong></div><a href="../checkout/checkout.html" class="btn-add-cart w-full rounded-lg py-4 flex items-center justify-center" style="border-radius:0.5rem;padding:1rem;display:flex;align-items:center;justify-content:center;">Finalizar compra →</a></div></aside></div>
+
+<script src="../assets/js/main.js"></script>
+
+<div id="searchOverlay" class="cart-drawer" aria-hidden="true" style="z-index: 3000;">
+  <div id="searchBackdrop" class="cart-backdrop"></div>
+  <aside class="cart-panel" style="width: min(600px, 100%);">
+    <div class="cart-header">
+      <h3>Buscador</h3>
+      <button id="searchClose" class="cart-close">✕</button>
+    </div>
+    <div class="p-6">
+      <input type="text" id="searchInput" placeholder="Busca proteínas, creatinas..." 
+             class="form-input" style="background: #1a1a1a; color: white; border-color: var(--color-secondary);">
+      
+      <div id="searchResults" class="mt-8 flex flex-col gap-4">
+        <p class="text-gray-500 text-center">Empieza a escribir para buscar...</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+
+</body>
+</html>

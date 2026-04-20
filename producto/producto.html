@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es" data-root="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producto | Glitch Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<!-- HEADER (idéntico al de index pero con rutas relativas hacia ../) -->
+<header class="header-fixed">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">GLITCH CODE</a>
+
+    <nav class="header-nav" aria-label="Navegación principal">
+      <a href="../index.html" class="nav-link">Inicio</a>
+
+            <div class="nav-item">
+        <a href="producto.html" class="nav-link" style="color:var(--color-secondary)">Producto ▾</a>
+        <div class="dropdown-menu" role="menu">
+          <a href="producto.html#proteinas">Proteínas</a>
+          <a href="producto.html#creatinas">Creatinas</a>
+          <a href="producto.html#preworkout">Preworkout</a>
+          <a href="producto.html#salud">Salud</a>
+          <a href="producto.html#snacks">Snacks</a>
+          <div class="dropdown-divider"></div>
+          <a href="producto.html" style="color:var(--color-accent);font-weight:700;">⚡ Ver todos</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="../blog/blog.html" class="nav-link">Blog ▾</a>
+        <div class="dropdown-menu">
+          <a href="../blog/blog.html">Guías de suplementos</a>
+          <a href="../blog/blog.html#nutricion">Nutrición</a>
+          <a href="../blog/blog.html#recuperacion">Recuperación</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="../contacto/contacto.html" class="nav-link">Contacto ▾</a>
+        <div class="dropdown-menu">
+          <a href="../contacto/contacto.html">Enviar mensaje</a>
+          <a href="../contacto/contacto.html#ubicacion">Nuestra ubicación</a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="../legales/legales.html" class="nav-link">Legales ▾</a>
+        <div class="dropdown-menu">
+          <a href="../legales/legales.html#aviso">Aviso legal</a>
+          <a href="../legales/legales.html#privacidad">Privacidad</a>
+          <a href="../legales/legales.html#cookies">Cookies</a>
+          <a href="../legales/legales.html#condiciones">Condiciones</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="header-icons">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <button id="wishlistToggle" class="cart-toggle" aria-label="Lista de deseos" type="button">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span id="wishlistCount" class="cart-count" style="display:none">0</span>
+      </button>
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <button id="cartToggle" class="cart-toggle" aria-label="Carrito" type="button">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+      <button id="hamburgerBtn" class="hamburger-btn" aria-label="Menú" type="button">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobileNav" class="mobile-nav">
+    <a href="../index.html">Inicio</a>
+    <span class="mobile-cat-label">Producto</span>
+    <a href="#proteinas">Proteínas</a>
+    <a href="#creatinas">Creatinas</a>
+    <a href="#vitaminas">Vitaminas</a>
+    <a href="#complementos">Complementos</a>
+    <a href="#suplementos">Suplementos</a>
+    <a href="#snacks">Snacks</a>
+    <span class="mobile-cat-label">Info</span>
+    <a href="../blog/blog.html">Blog</a>
+    <a href="../contacto/contacto.html">Contacto</a>
+    <a href="../legales/legales.html">Legales</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ═══ HERO DE PRODUCTO ═══════════════════════════════ -->
+  <section class="page-hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">NUESTROS PRODUCTOS</h1>
+      <p class="hero-subtitle">Suplementación de alto rendimiento para atletas que no aceptan límites.</p>
+    </div>
+  </section>
+
+  <!-- ═══ NAVEGACIÓN POR CATEGORÍAS ═════════════════════ -->
+  <section class="section-shell p-4">
+    <div class="flex flex-wrap gap-3 justify-center max-w-7xl mx-auto">
+      <a href="#proteinas" class="cta-btn" style="margin-top:0;padding:.6rem 1.2rem;font-size:.85rem;">Proteínas</a>
+      <a href="#creatinas" class="cta-btn" style="margin-top:0;padding:.6rem 1.2rem;font-size:.85rem;background:#333;">Creatinas</a>
+      <a href="#preworkout" class="cta-btn" style="margin-top:0;padding:.6rem 1.2rem;font-size:.85rem;background:#333;">Preworkout</a>
+      <a href="#salud" class="cta-btn" style="margin-top:0;padding:.6rem 1.2rem;font-size:.85rem;background:#333;">Salud</a>
+      <a href="#snacks" class="cta-btn" style="margin-top:0;padding:.6rem 1.2rem;font-size:.85rem;background:#333;">Snacks</a>
+    </div>
+  </section>
+
+
+  <!-- ═══ PROTEÍNAS ════════════════════════════════════ -->
+  <section id="proteinas" class="section-shell product-dark p-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-title mb-2">PROTEÍNAS</h2>
+      <p class="text-gray-400 mb-8">La base de toda recuperación muscular de alto rendimiento.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="product-card relative" style="background:#151515;border:1px solid #222;">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="Proteína Iso-Tech" data-price="45.99€" data-img="../assets/img/imgproteina.png" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <a href="detalle/proteina-iso-tech.html"><img src="../assets/img/Proteina.png" alt="Proteína Iso-Tech" class="w-full h-64 object-contain bg-white p-4"></a>
+          <div class="p-4">
+            <p class="font-semibold text-lg text-white"><a href="detalle/proteina-iso-tech.html" class="hover:text-blue-400">Proteína Iso-Tech</a></p>
+            <p class="text-sm text-gray-500">27g de proteína por servicio · Whey Isolate</p>
+            <p class="text-blue-400 mt-2 font-semibold">45.99€</p>
+            <a href="detalle/proteina-iso-tech.html" class="mt-3 inline-block text-xs font-bold text-blue-400 hover:text-blue-300">Ver detalle →</a>
+          </div>
+        </div>
+        <div class="product-card relative" style="background:#151515;border:1px solid #222;">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="Proteína Vegana Blend" data-price="39.99€" data-img="../assets/img/imgproteina.png" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <a href="detalle/proteina-vegana.html"><img src="../assets/img/Proteina.png" alt="Proteína Vegana" class="w-full h-64 object-contain bg-white p-4"></a>
+          <div class="p-4">
+            <p class="font-semibold text-lg text-white"><a href="detalle/proteina-vegana.html" class="hover:text-blue-400">Proteína Vegana Blend</a></p>
+            <p class="text-sm text-gray-500">Fórmula 100% vegetal · Sin lactosa</p>
+            <p class="text-blue-400 mt-2 font-semibold">39.99€</p>
+            <a href="detalle/proteina-vegana.html" class="mt-3 inline-block text-xs font-bold text-blue-400 hover:text-blue-300">Ver detalle →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CREATINAS ══════════════════════════════════════ -->
+  <section id="creatinas" class="section-shell p-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-title mb-2">CREATINAS</h2>
+      <p class="text-gray-500 mb-8">La base de cualquier stack de fuerza serio.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="product-card relative">
+          <button class="wishlist-btn" data-name="Creatina Monohidrato 500g" data-price="24.99€" data-img="../assets/img/imgcreatina.png" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <a href="detalle/creatina-monohidrato.html"><img src="../assets/img/Creatina.png" alt="Creatina" class="w-full h-64 object-contain bg-white p-4"></a>
+          <div class="p-4">
+            <p class="font-semibold text-lg"><a href="detalle/creatina-monohidrato.html" class="hover:text-blue-400">Creatina Monohidrato 500g</a></p>
+            <p class="text-sm text-gray-500">Sello Creapure® certificado</p>
+            <p class="text-blue-600 mt-2 font-semibold">24.99€</p>
+            <a href="detalle/creatina-monohidrato.html" class="mt-3 inline-block text-xs font-bold text-blue-400 hover:text-blue-300">Ver detalle →</a>
+          </div>
+        </div>
+        <div class="product-card relative">
+          <button class="wishlist-btn" data-name="Creatina HCL Pro" data-price="29.99€" data-img="../assets/img/imgcreatina.png" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <a href="detalle/creatina-hcl.html"><img src="../assets/img/Creatina.png" alt="Creatina HCL" class="w-full h-64 object-contain bg-white p-4"></a>
+          <div class="p-4">
+            <p class="font-semibold text-lg"><a href="detalle/creatina-hcl.html" class="hover:text-blue-400">Creatina HCL Pro</a></p>
+            <p class="text-sm text-gray-500">Mayor solubilidad y absorción</p>
+            <p class="text-blue-600 mt-2 font-semibold">29.99€</p>
+            <a href="detalle/creatina-hcl.html" class="mt-3 inline-block text-xs font-bold text-blue-400 hover:text-blue-300">Ver detalle →</a>
+          </div>
+        </div>
+        <div class="product-card relative">
+          <button class="wishlist-btn" data-name="Stack Creatina + Beta-Alanina" data-price="39.99€" data-img="../assets/img/imgcreatina.png" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <a href="detalle/creatina-beta-stack.html"><img src="../assets/img/Creatina.png" alt="Stack" class="w-full h-64 object-contain bg-white p-4"></a>
+          <div class="p-4">
+            <p class="font-semibold text-lg"><a href="detalle/creatina-beta-stack.html" class="hover:text-blue-400">Stack Creatina + Beta-Alanina</a></p>
+            <p class="text-sm text-gray-500">Sinergia perfecta de rendimiento</p>
+            <p class="text-blue-600 mt-2 font-semibold">39.99€</p>
+            <a href="detalle/creatina-beta-stack.html" class="mt-3 inline-block text-xs font-bold text-blue-400 hover:text-blue-300">Ver detalle →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VITAMINAS ══════════════════════════════════════ -->
+  <section id="salud" class="section-shell product-dark p-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-title mb-2">VITAMINAS</h2>
+      <p class="text-gray-400 mb-8">Micronutrientes esenciales para el atleta moderno.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-[#151515] rounded-xl overflow-hidden border border-gray-800 relative">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="Vitamina D3 + K2" data-price="12.99€" data-img="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=200" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <img src="../assets/img/VitaminaD3&K2.png" alt="Vitamina D3" class="w-full h-48 object-cover" style="cursor:pointer;" onclick="location.href='detalle/vitamina-d3-k2.html'"
+          <a href="detalle/vitamina-d3-k2.html" class="block"><div class="p-4"><h3 class="font-bold text-white text-sm mb-1">Vitamina D3 + K2</h3><p class="text-yellow-400 font-bold">12.99€</p><span class="mt-2 inline-block text-xs font-bold text-blue-400">Ver detalle →</span></div></a>
+        </div>
+        <div class="bg-[#151515] rounded-xl overflow-hidden border border-gray-800 relative">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="Complejo B6 & B12" data-price="9.99€" data-img="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=200" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <img src="../assets/img/ComplejoB6&B12.png" alt="Vitamina B" class="w-full h-48 object-cover" style="cursor:pointer;" onclick="location.href='detalle/complejo-b6-b12.html'">
+          <a href="detalle/complejo-b6-b12.html" class="block"><div class="p-4"><h3 class="font-bold text-white text-sm mb-1">Complejo B6 & B12</h3><p class="text-yellow-400 font-bold">9.99€</p><span class="mt-2 inline-block text-xs font-bold text-blue-400">Ver detalle →</span></div></a>
+        </div>
+        <div class="bg-[#151515] rounded-xl overflow-hidden border border-gray-800 relative">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="Zinc & Magnesio ZMA" data-price="14.99€" data-img="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <img src="../assets/img/Zinc&MagnesioZMA.png" alt="ZMA" class="w-full h-48 object-cover" style="cursor:pointer;" onclick="location.href='detalle/zinc-magnesio-zma.html'">
+          <a href="detalle/zinc-magnesio-zma.html" class="block"><div class="p-4"><h3 class="font-bold text-white text-sm mb-1">Zinc & Magnesio ZMA</h3><p class="text-yellow-400 font-bold">14.99€</p><span class="mt-2 inline-block text-xs font-bold text-blue-400">Ver detalle →</span></div></a>
+        </div>
+        <div class="bg-[#151515] rounded-xl overflow-hidden border border-gray-800 relative">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="Multivitamínico Sport" data-price="19.99€" data-img="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=200" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <img src="../assets/img/MultivitaminicoSport.png" alt="Multivitamínico" class="w-full h-48 object-cover" style="cursor:pointer;" onclick="location.href='detalle/multivitaminico-sport.html'">
+          <a href="detalle/multivitaminico-sport.html" class="block"><div class="p-4"><h3 class="font-bold text-white text-sm mb-1">Multivitamínico Sport</h3><p class="text-yellow-400 font-bold">19.99€</p><span class="mt-2 inline-block text-xs font-bold text-blue-400">Ver detalle →</span></div></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COMPLEMENTOS ═══════════════════════════════════ -->
+  <section id="salud" class="section-shell p-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-title mb-2">COMPLEMENTOS</h2>
+      <p class="text-gray-500 mb-8">Optimiza cada aspecto de tu rendimiento y salud.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="product-card relative"><button class="wishlist-btn" data-name="Omega 3 2000mg" data-price="14.99€" data-img="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=200" aria-label="Añadir"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button><img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=400" alt="Omega 3" class="w-full h-56 object-cover" style="cursor:pointer;" onclick="location.href='detalle/omega-3-2000mg.html'"><div class="p-4"><p class="font-semibold"><a href="detalle/omega-3-2000mg.html" class="hover:text-blue-400">Omega 3 2000mg</a></p><p class="text-sm text-gray-500">EPA + DHA de alta concentración</p><p class="text-blue-600 mt-2 font-semibold">14.99€</p><a href="detalle/omega-3-2000mg.html" class="mt-3 inline-block text-xs font-bold text-blue-400">Ver detalle →</a></div></div>
+        <div class="product-card relative"><button class="wishlist-btn" data-name="Colágeno Marino" data-price="22.99€" data-img="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200" aria-label="Añadir"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400" alt="Colágeno" class="w-full h-56 object-cover" style="cursor:pointer;" onclick="location.href='detalle/colageno-marino.html'"><div class="p-4"><p class="font-semibold"><a href="detalle/colageno-marino.html" class="hover:text-blue-400">Colágeno Marino + Vitamina C</a></p><p class="text-sm text-gray-500">Salud articular y piel</p><p class="text-blue-600 mt-2 font-semibold">22.99€</p><a href="detalle/colageno-marino.html" class="mt-3 inline-block text-xs font-bold text-blue-400">Ver detalle →</a></div></div>
+        <div class="product-card relative"><button class="wishlist-btn" data-name="Probióticos Sport" data-price="18.99€" data-img="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=200" aria-label="Añadir"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button><img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400" alt="Probióticos" class="w-full h-56 object-cover" style="cursor:pointer;" onclick="location.href='detalle/probioticos-sport.html'"><div class="p-4"><p class="font-semibold"><a href="detalle/probioticos-sport.html" class="hover:text-blue-400">Probióticos Sport 10B</a></p><p class="text-sm text-gray-500">Flora intestinal del deportista</p><p class="text-blue-600 mt-2 font-semibold">18.99€</p><a href="detalle/probioticos-sport.html" class="mt-3 inline-block text-xs font-bold text-blue-400">Ver detalle →</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SUPLEMENTOS ════════════════════════════════════ -->
+  <section id="preworkout" class="section-shell product-dark p-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-title mb-2">SUPLEMENTOS</h2>
+      <p class="text-gray-400 mb-8">Pre-entrenos y energizantes para romper récords.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div class="bg-[#151515] rounded-xl overflow-hidden border border-gray-800 relative p-4">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="Glitch Fuel Pre-Workout" data-price="29.99€" data-img="../assets/img/imgpreworkout.png" aria-label="Añadir"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <img src="../assets/img/Preworkout.png" alt="Pre-Workout" class="w-full h-56 object-contain bg-white rounded-lg p-4" style="cursor:pointer;" onclick="location.href='detalle/preworkout-glitch-fuel.html'">
+          <div class="mt-4"><p class="font-bold text-white"><a href="detalle/preworkout-glitch-fuel.html" class="hover:text-blue-400">Glitch Fuel Pre-Workout</a></p><p class="text-sm text-gray-400 mt-1">Cafeína 280mg · L-Citrulina · Beta-Alanina</p><p class="text-yellow-400 font-bold mt-2">29.99€</p><a href="detalle/preworkout-glitch-fuel.html" class="mt-2 inline-block text-xs font-bold text-blue-400">Ver detalle →</a></div>
+        </div>
+        <div class="bg-[#151515] rounded-xl overflow-hidden border border-gray-800 relative p-4">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="BCAA 2:1:1 Recovery" data-price="24.99€" data-img="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=200" aria-label="Añadir"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=300&fit=crop" alt="BCAA" class="w-full h-56 object-cover rounded-lg" style="cursor:pointer;" onclick="location.href='detalle/bcaa-recovery.html'">
+          <div class="mt-4"><p class="font-bold text-white"><a href="detalle/bcaa-recovery.html" class="hover:text-blue-400">BCAA 2:1:1 Recovery</a></p><p class="text-sm text-gray-400 mt-1">Leucina · Isoleucina · Valina</p><p class="text-yellow-400 font-bold mt-2">24.99€</p><a href="detalle/bcaa-recovery.html" class="mt-2 inline-block text-xs font-bold text-blue-400">Ver detalle →</a></div>
+        </div>
+        <div class="bg-[#151515] rounded-xl overflow-hidden border border-gray-800 relative p-4">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="EAAs Spectrum" data-price="32.99€" data-img="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=200" aria-label="Añadir"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?w=400&h=300&fit=crop" alt="EAAs" class="w-full h-56 object-cover rounded-lg" style="cursor:pointer;" onclick="location.href='detalle/eaas-spectrum.html'">
+          <div class="mt-4"><p class="font-bold text-white"><a href="detalle/eaas-spectrum.html" class="hover:text-blue-400">EAAs Spectrum</a></p><p class="text-sm text-gray-400 mt-1">9 aminoácidos esenciales completos</p><p class="text-yellow-400 font-bold mt-2">32.99€</p><a href="detalle/eaas-spectrum.html" class="mt-2 inline-block text-xs font-bold text-blue-400">Ver detalle →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SNACKS ══════════════════════════════════════════ -->
+  <section id="snacks" class="section-shell p-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-title mb-2">SNACKS PROTEICOS</h2>
+      <p class="text-gray-500 mb-8">Sabor sin culpa. Proteína que satisface.</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="product-card" style="position: relative; display: block; width: 100%; background: white; border-radius: 0.8rem; overflow: hidden;">
+  <button class="wishlist-btn" 
+          data-name="Barrita Glitch Crunch" 
+          data-price="2.99€" 
+          data-img="https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=400&h=300&fit=crop" 
+          style="position: absolute; top: 12px; right: 12px; z-index: 20; background: rgba(255,255,255,0.9); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2); border: none; cursor: pointer;">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" style="transition: all 0.3s;">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>
+    </svg>
+  </button>
+  <a href="detalle/barrita-glitch-crunch.html" style="display: block; width: 100%; text-decoration: none;">
+    <img src="../assets/img/BarritaGlitchCrunch.png" 
+         alt="Barrita Glitch Crunch" 
+         style="width: 100%; height: 192px; object-fit: cover; display: block;">
+    <div style="padding: 0.75rem;">
+      <p style="font-weight: 600; font-size: 0.875rem; color: #0E0E0E; margin: 0;">Barrita Glitch Crunch</p>
+      <p style="font-size: 0.75rem; color: #6B7280; margin: 2px 0;">22g proteína · 200kcal</p>
+      <p style="color: #007BFF; font-weight: 700; font-size: 0.95rem; margin-top: 4px;">2.99€ / ud.</p>
+    </div>
+  </a>
+</div>
+
+<div class="product-card" style="position: relative; display: block; width: 100%; background: white; border-radius: 0.8rem; overflow: hidden;">
+  <button class="wishlist-btn" 
+          data-name="Galletas Protein Cookie" 
+          data-price="8.99€" 
+          data-img="https://images.unsplash.com/photo-1508767553737-e9b5cf0d2c09?w=400&h=300&fit=crop" 
+          style="position: absolute; top: 12px; right: 12px; z-index: 20; background: rgba(255,255,255,0.9); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2); border: none; cursor: pointer;">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>
+    </svg>
+  </button>
+  <a href="detalle/galletas-protein-cookie.html" style="display: block; width: 100%; text-decoration: none;">
+    <img src="../assets/img/GalletasProteinCookie.png" 
+         alt="Galletas Protein Cookie" 
+         style="width: 100%; height: 192px; object-fit: cover; display: block;">
+    <div style="padding: 0.75rem;">
+      <p style="font-weight: 600; font-size: 0.875rem; color: #0E0E0E; margin: 0;">Galletas Protein Cookie</p>
+      <p style="font-size: 0.75rem; color: #6B7280; margin: 2px 0;">15g proteína · Caja x6</p>
+      <p style="color: #007BFF; font-weight: 700; font-size: 0.95rem; margin-top: 4px;">8.99€ / caja</p>
+    </div>
+  </a>
+</div>
+
+<div class="product-card" style="position: relative; display: block; width: 100%; background: white; border-radius: 0.8rem; overflow: hidden;">
+  <button class="wishlist-btn" 
+          data-name="Protein Chips BBQ" 
+          data-price="1.99€" 
+          data-img="https://images.unsplash.com/photo-1613478223719-2ab802602423?w=400&h=300&fit=crop" 
+          style="position: absolute; top: 12px; right: 12px; z-index: 20; background: rgba(255,255,255,0.9); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2); border: none; cursor: pointer;">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>
+    </svg>
+  </button>
+  <a href="detalle/protein-chips-bbq.html" style="display: block; width: 100%; text-decoration: none;">
+    <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?w=400&h=300&fit=crop" 
+         alt="Protein Chips BBQ" 
+         style="width: 100%; height: 192px; object-fit: cover; display: block;">
+    <div style="padding: 0.75rem;">
+      <p style="font-weight: 600; font-size: 0.875rem; color: #0E0E0E; margin: 0;">Protein Chips BBQ</p>
+      <p style="font-size: 0.75rem; color: #6B7280; margin: 2px 0;">10g proteína · 120kcal</p>
+      <p style="color: #007BFF; font-weight: 700; font-size: 0.95rem; margin-top: 4px;">1.99€ / bolsa</p>
+    </div>
+  </a>
+</div>
+
+<div class="product-card" style="position: relative; display: block; width: 100%; background: white; border-radius: 0.8rem; overflow: hidden;">
+  <button class="wishlist-btn" 
+          data-name="Glitch Shake RTD" 
+          data-price="3.49€" 
+          data-img="https://images.unsplash.com/photo-1587400873563-e3891bbeb8fc?w=400&h=300&fit=crop" 
+          style="position: absolute; top: 12px; right: 12px; z-index: 20; background: rgba(255,255,255,0.9); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2); border: none; cursor: pointer;">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>
+    </svg>
+  </button>
+  <a href="detalle/glitch-shake-rtd.html" style="display: block; width: 100%; text-decoration: none;">
+    <img src="https://images.unsplash.com/photo-1587400873563-e3891bbeb8fc?w=400&h=300&fit=crop" 
+         alt="Glitch Shake RTD" 
+         style="width: 100%; height: 192px; object-fit: cover; display: block;">
+    <div style="padding: 0.75rem;">
+      <p style="font-weight: 600; font-size: 0.875rem; color: #0E0E0E; margin: 0;">Glitch Shake RTD</p>
+      <p style="font-size: 0.75rem; color: #6B7280; margin: 2px 0;">25g proteína · Listo para tomar</p>
+      <p style="color: #007BFF; font-weight: 700; font-size: 0.95rem; margin-top: 4px;">3.49€ / ud.</p>
+    </div>
+  </a>
+</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer style="background: #0a0a0a; color: white; padding: 60px 20px 30px 20px; margin-top: 50px; border-top: 1px solid #222; font-family: 'Poppins', sans-serif;">
+  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+    
+    <div>
+      <h4 style="font-family: 'Orbitron', sans-serif; color: #007BFF; margin-bottom: 20px; font-size: 1rem; text-transform: uppercase;">Productos</h4>
+      <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <li><a href="../producto/producto.html#proteinas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Proteínas</a></li>
+        <li><a href="../producto/producto.html#creatinas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Creatinas</a></li>
+        <li><a href="../producto/producto.html#vitaminas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Vitaminas</a></li>
+        <li><a href="../producto/producto.html#complementos" style="color: #888; text-decoration: none; font-size: 0.9rem;">Complementos</a></li>
+        <li><a href="../producto/producto.html#suplementos" style="color: #888; text-decoration: none; font-size: 0.9rem;">Suplementos</a></li>
+        <li><a href="../producto/producto.html#snacks" style="color: #888; text-decoration: none; font-size: 0.9rem;">Snacks</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 style="font-family: 'Orbitron', sans-serif; color: #007BFF; margin-bottom: 20px; font-size: 1rem; text-transform: uppercase;">Información</h4>
+      <ul style="list-style: none; padding: 0; line-height: 2;">
+        <li><a href="../contacto/contacto.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Contacto</a></li>
+        <li><a href="../blog/blog.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Blog Nutrición</a></li>
+        <li><a href="../legales/legales.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Aviso Legal / Privacidad</a></li>
+      </ul>
+    </div>
+
+    <div style="text-align: right;">
+      <div style="font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 900; color: white; margin-bottom: 10px;">
+        <a href="../index.html" style="color: white; text-decoration: none;">GLITCH <span style="color: #007BFF;">CODE</span></a>
+      </div>
+      <p style="color: #555; font-size: 0.85rem;">Nutrición Deportiva Avanzada.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Drawers carrito y wishlist -->
+<div id="wishlistDrawer" class="cart-drawer" aria-hidden="true"><div id="wishlistBackdrop" class="cart-backdrop"></div><aside class="cart-panel"><div class="cart-header"><h3>❤ Lista de deseos</h3><button id="wishlistClose" class="cart-close" type="button">✕</button></div><div id="wishlistItems" class="cart-items"><p class="cart-empty">Sin favoritos aún.</p></div></aside></div>
+
+<div id="cartDrawer" class="cart-drawer" aria-hidden="true"><div id="cartBackdrop" class="cart-backdrop"></div><aside class="cart-panel"><div class="cart-header"><h3>Tu carrito</h3><button id="cartClose" class="cart-close" type="button">✕</button></div><div id="cartItems" class="cart-items"><p class="cart-empty">Tu carrito está vacío.</p></div><div class="cart-footer"><div class="cart-total-row"><span>Total</span><strong><span id="cartTotal">0.00</span> €</strong></div><a href="../checkout/checkout.html" class="btn-add-cart w-full rounded-lg py-4 flex items-center justify-center" style="border-radius:0.5rem;padding:1rem;display:flex;align-items:center;justify-content:center;">Finalizar compra →</a></div></aside></div>
+
+<script src="../assets/js/main.js"></script>
+
+<div id="searchOverlay" class="cart-drawer" aria-hidden="true" style="z-index: 3000;">
+  <div id="searchBackdrop" class="cart-backdrop"></div>
+  <aside class="cart-panel" style="width: min(600px, 100%);">
+    <div class="cart-header">
+      <h3>Buscador</h3>
+      <button id="searchClose" class="cart-close">✕</button>
+    </div>
+    <div class="p-6">
+      <input type="text" id="searchInput" placeholder="Busca proteínas, creatinas..." 
+             class="form-input" style="background: #1a1a1a; color: white; border-color: var(--color-secondary);">
+      
+      <div id="searchResults" class="mt-8 flex flex-col gap-4">
+        <p class="text-gray-500 text-center">Empieza a escribir para buscar...</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+//MODAL GENÉRICO PARA PRODUCTOS
+<div id="genericProductModal" class="product-modal-overlay" style="display:none;">
+  <div class="product-modal-content">
+    <button class="modal-close" onclick="closeGenericModal()">✕</button>
+    
+    <div class="product-modal-grid">
+      <div class="modal-image-container">
+        <img id="modalGenericImg" src="" alt="Producto">
+      </div>
+      
+      <div class="modal-info">
+        <h2 id="modalGenericTitle" class="modal-title"></h2>
+        <p id="modalGenericPrice" class="modal-price"></p>
+        
+        <div class="modal-description-box">
+          <h3 class="font-bold mb-2">Descripción:</h3>
+          <p id="modalGenericDesc" class="text-gray-400 text-sm leading-relaxed"></p>
+        </div>
+
+        <div class="modal-actions mt-6">
+          <label class="block text-xs font-bold mb-2">CANTIDAD:</label>
+          <input type="number" id="modalGenericQty" value="1" min="1" class="qty-input-generic">
+          
+          <button onclick="addToCartFromModal()" class="btn-add-cart w-full mt-4">
+            AÑADIR AL CARRITO
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es" data-root="../../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitamina D3 + K2 | Glitch Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../../assets/css/main.css">
+</head>
+<body>
+
+<header class="header-fixed">
+  <div class="header-inner">
+    <a href="../../index.html" class="logo">GLITCH CODE</a>
+    <nav class="header-nav" aria-label="Navegación principal">
+      <a href="../../index.html" class="nav-link">Inicio</a>
+            <div class="nav-item">
+        <a href="../producto.html" class="nav-link" style="color:var(--color-secondary)">Producto ▾</a>
+        <div class="dropdown-menu" role="menu">
+          <a href="../producto.html#proteinas">Proteínas</a>
+          <a href="../producto.html#creatinas">Creatinas</a>
+          <a href="../producto.html#preworkout">Preworkout</a>
+          <a href="../producto.html#salud">Salud</a>
+          <a href="../producto.html#snacks">Snacks</a>
+          <div class="dropdown-divider"></div>
+          <a href="../producto.html" style="color:var(--color-accent);font-weight:700;">⚡ Ver todos</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../../blog/blog.html" class="nav-link">Blog ▾</a>
+        <div class="dropdown-menu">
+          <a href="../../blog/blog.html">Guías</a>
+          <a href="../../blog/blog.html#nutricion">Nutrición</a>
+          <a href="../../blog/blog.html#recuperacion">Recuperación</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../../contacto/contacto.html" class="nav-link">Contacto ▾</a>
+        <div class="dropdown-menu">
+          <a href="../../contacto/contacto.html">Enviar mensaje</a>
+          <a href="../../contacto/contacto.html#ubicacion">Nuestra ubicación</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../../legales/legales.html" class="nav-link">Legales ▾</a>
+        <div class="dropdown-menu">
+          <a href="../../legales/legales.html#aviso">Aviso legal</a>
+          <a href="../../legales/legales.html#privacidad">Privacidad</a>
+          <a href="../../legales/legales.html#cookies">Cookies</a>
+          <a href="../../legales/legales.html#condiciones">Condiciones</a>
+        </div>
+      </div>
+    </nav>
+    <div class="header-icons">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <button id="wishlistToggle" class="cart-toggle" aria-label="Lista de deseos" type="button">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span id="wishlistCount" class="cart-count" style="display:none">0</span>
+      </button>
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <button id="cartToggle" class="cart-toggle" aria-label="Carrito" type="button">
+        <svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span id="cartCount" class="cart-count">0</span>
+      </button>
+      <button id="hamburgerBtn" class="hamburger-btn" aria-label="Menú" type="button"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav id="mobileNav" class="mobile-nav">
+    <a href="../../index.html">Inicio</a>
+    <a href="../producto.html">Producto</a>
+    <a href="../../blog/blog.html">Blog</a>
+    <a href="../../contacto/contacto.html">Contacto</a>
+    <a href="../../legales/legales.html">Legales</a>
+  </nav>
+</header>
+
+<main>
+  <section id="vitaminas" class="section-shell product-dark p-6 md:p-10" style="padding-top: 7rem;">
+    <div class="text-gray-400 text-xs md:text-sm mb-6 flex items-center gap-2">
+      <a href="../../index.html" class="hover:text-blue-400">Inicio</a><span>›</span>
+      <a href="../producto.html" class="hover:text-blue-400">Producto</a><span>›</span>
+      <span class="text-blue-400">Vitamina D3 + K2</span>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+
+      <!-- Galería -->
+      <div class="md:col-span-7 space-y-4">
+        <div class="gallery-main relative group">
+          <span class="absolute top-4 left-4 bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded shadow-lg z-10">ESENCIAL</span>
+          <img id="mainImage" src="../../assets/img/VitaminaD3%26K2.png" alt="Vitamina D3 + K2" class="w-full h-full object-contain p-8">
+        </div>
+        <div class="gallery-thumbs-container" id="galleryThumbs"></div>
+
+        <!-- Descripción desktop -->
+        <div class="hidden md:block mt-10 space-y-6 text-gray-300">
+          <div class="bg-[#1c1c1c] p-6 rounded-xl border border-gray-800">
+            <h3 class="font-bold text-lg mb-4 text-white">Descripción</h3>
+            <p class="leading-relaxed text-sm">La <strong>Vitamina D3 + K2</strong> de Glitch Code combina 2.000 UI de D3 de origen lanolina con 75mcg de K2 en su forma MK-7 de mayor biodisponibilidad. La D3 regula la absorción de calcio y el funcionamiento del sistema inmune; la K2 dirige ese calcio hacia los huesos y dientes, evitando la calcificación arterial. Imprescindible en latitudes de poca luz solar.</p>
+            <ul class="mt-4 space-y-2 text-sm">
+              <li class="text-green-400">✓ 2.000 UI de D3 + 75mcg K2 MK-7 por cápsula</li>
+<li class="text-green-400">✓ Refuerza sistema inmune y salud ósea</li>
+<li class="text-green-400">✓ Apoya la función muscular y síntesis de testosterona</li>
+<li class="text-green-400">✓ Fórmula oleosa para máxima absorción</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caja de compra -->
+      <div class="md:col-span-5">
+        <div class="product-info-sticky bg-[#151515] p-6 rounded-2xl border border-gray-800 shadow-2xl">
+          <h1 class="product-title text-2xl md:text-4xl font-bold mb-2">Vitamina D3 + K2</h1>
+
+          <div class="flex items-center gap-4 mb-4 flex-wrap">
+            <span class="text-3xl font-bold price-tag">12.99</span>
+            
+            <span class="text-gray-300 text-sm">4.9 · 3.240 reseñas</span>
+          </div>
+
+          <hr class="border-gray-800 mb-6">
+
+          <!-- Descripción corta -->
+          <p class="text-gray-400 text-sm leading-relaxed mb-6">Combinación sinérgica de vitamina D3 (colecalciferol) y vitamina K2 (MK-7) para salud ósea, función inmune y rendimiento muscular óptimo.</p>
+
+          <hr class="border-gray-800 mb-6">
+
+          <!-- Cantidad y carrito -->
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <div class="flex items-center bg-gray-900 rounded-lg border border-gray-700 w-32 h-14">
+                <button type="button" class="w-full h-full text-gray-400 hover:text-white font-bold" onclick="adjustQty(-1)">−</button>
+                <input type="number" value="1" id="qty" class="w-full bg-transparent text-center text-white font-bold focus:outline-none" readonly>
+                <button type="button" class="w-full h-full text-gray-400 hover:text-white font-bold" onclick="adjustQty(1)">+</button>
+              </div>
+              <button type="button" id="addToCartBtn"
+                class="w-2/3 btn-add-cart rounded-lg py-4 flex items-center justify-center gap-2"
+                data-name="Vitamina D3 + K2" data-price="12.99" data-img="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=800&h=800&fit=crop">
+                AÑADIR AL CARRO
+              </button>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-xs text-green-400 mt-2">
+              <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              En stock · Envío en 24h
+            </div>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2 mt-8 pt-6 border-t border-gray-800 text-center">
+            <div><p class="text-[11px] text-gray-400">Garantía de calidad</p></div>
+            <div><p class="text-[11px] text-gray-400">Envío rápido</p></div>
+            <div><p class="text-[11px] text-gray-400">Pago seguro</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Descripción mobile -->
+    <div class="md:hidden mt-8 text-gray-300">
+      <div class="bg-[#1c1c1c] p-6 rounded-xl border border-gray-800">
+        <h3 class="font-bold text-lg mb-4 text-white">Descripción</h3>
+        <p class="leading-relaxed text-sm">La <strong>Vitamina D3 + K2</strong> de Glitch Code combina 2.000 UI de D3 de origen lanolina con 75mcg de K2 en su forma MK-7 de mayor biodisponibilidad. La D3 regula la absorción de calcio y el funcionamiento del sistema inmune; la K2 dirige ese calcio hacia los huesos y dientes, evitando la calcificación arterial. Imprescindible en latitudes de poca luz solar.</p>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li class="text-green-400">✓ 2.000 UI de D3 + 75mcg K2 MK-7 por cápsula</li>
+<li class="text-green-400">✓ Refuerza sistema inmune y salud ósea</li>
+<li class="text-green-400">✓ Apoya la función muscular y síntesis de testosterona</li>
+<li class="text-green-400">✓ Fórmula oleosa para máxima absorción</li>
+        </ul>
+      </div>
+    </div>
+
+
+
+    <!-- ═══ OPINIONES DE USUARIOS ═══════════════════════ -->
+    <section class="mt-16 pt-10 border-t border-gray-700">
+      <h2 class="font-bold text-2xl md:text-3xl mb-2 uppercase tracking-wider">Opiniones de <span class="text-blue-500">clientes</span></h2>
+      <div class="flex items-center gap-4 mb-8">
+        <span class="text-5xl font-bold text-white">4.8</span>
+        <div>
+          <div class="flex gap-1 text-yellow-400 text-xl">★★★★★</div>
+          <p class="text-gray-500 text-sm mt-1">Basado en reseñas verificadas</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-[#1c1c1c] border border-gray-800 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center font-bold text-white text-sm">JM</div>
+              <div><p class="font-semibold text-white text-sm">Jorge M.</p><p class="text-gray-500 text-xs">Compra verificada · hace 1 semana</p></div>
+            </div>
+            <div class="flex gap-0.5 text-yellow-400 text-sm">★★★★★</div>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">"Producto de calidad excepcional. Noté los resultados muy rápido y el envío fue en menos de 24h. Repetiré sin duda."</p>
+        </div>
+        <div class="bg-[#1c1c1c] border border-gray-800 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-green-700 flex items-center justify-center font-bold text-white text-sm">LP</div>
+              <div><p class="font-semibold text-white text-sm">Laura P.</p><p class="text-gray-500 text-xs">Compra verificada · hace 3 semanas</p></div>
+            </div>
+            <div class="flex gap-0.5 text-yellow-400 text-sm">★★★★★</div>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">"Lo mejor que he probado en su categoría. Calidad-precio insuperable y el packaging es muy cómodo para llevar al gym."</p>
+        </div>
+        <div class="bg-[#1c1c1c] border border-gray-800 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-purple-700 flex items-center justify-center font-bold text-white text-sm">RS</div>
+              <div><p class="font-semibold text-white text-sm">Rubén S.</p><p class="text-gray-500 text-xs">Compra verificada · hace 2 semanas</p></div>
+            </div>
+            <div class="flex gap-0.5 text-yellow-400 text-sm">★★★★☆</div>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">"Muy buena calidad. Le doy 4 estrellas porque me gustaría más variedad de tamaños, pero el producto en sí es de 10."</p>
+        </div>
+        <div class="bg-[#1c1c1c] border border-gray-800 rounded-xl p-6">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-orange-700 flex items-center justify-center font-bold text-white text-sm">NF</div>
+              <div><p class="font-semibold text-white text-sm">Natalia F.</p><p class="text-gray-500 text-xs">Compra verificada · hace 4 días</p></div>
+            </div>
+            <div class="flex gap-0.5 text-yellow-400 text-sm">★★★★★</div>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">"Primera compra en Glitch Code y me ha encantado. Atención al cliente perfecta y el producto llegó en perfecto estado."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PRODUCTOS DESTACADOS ══════════════════════════ -->
+    <section class="mt-16 pt-10 border-t border-gray-700">
+      <h2 class="font-bold text-2xl md:text-3xl mb-8 uppercase tracking-wider">Productos <span class="text-blue-500">Destacados</span></h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="group bg-[#151515] rounded-xl overflow-hidden border border-gray-800 relative">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="Proteína Iso-Tech" data-price="45.99€" data-img="../../assets/img/VitaminaD3%26K2.png" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <a href="proteina-iso-tech.html" class="block">
+            <div class="aspect-square bg-white p-4"><img src="../../assets/img/VitaminaD3%26K2.png" alt="Proteína Iso-Tech" class="w-full h-full object-contain" loading="lazy"></div>
+            <div class="p-4"><p class="text-xs text-gray-500 mb-1 uppercase tracking-wide">Proteínas</p><h3 class="font-bold text-white text-sm mb-2">Proteína Iso-Tech</h3><p class="text-yellow-400 font-bold">45.99€</p></div>
+          </a>
+        </div>
+        <div class="group bg-[#151515] rounded-xl overflow-hidden border border-gray-800 relative">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="Creatina Monohidrato" data-price="24.99€" data-img="../../assets/img/VitaminaD3%26K2.png" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <a href="creatina-monohidrato.html" class="block">
+            <div class="aspect-square bg-white p-4"><img src="../../assets/img/VitaminaD3%26K2.png" alt="Creatina Monohidrato" class="w-full h-full object-contain" loading="lazy"></div>
+            <div class="p-4"><p class="text-xs text-gray-500 mb-1 uppercase tracking-wide">Creatinas</p><h3 class="font-bold text-white text-sm mb-2">Creatina Monohidrato</h3><p class="text-yellow-400 font-bold">24.99€</p></div>
+          </a>
+        </div>
+        <div class="group bg-[#151515] rounded-xl overflow-hidden border border-gray-800 relative">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="Glitch Fuel Pre-Workout" data-price="29.99€" data-img="../../assets/img/VitaminaD3%26K2.png" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <a href="preworkout-glitch-fuel.html" class="block">
+            <div class="aspect-square bg-white p-4"><img src="../../assets/img/VitaminaD3%26K2.png" alt="Glitch Fuel Pre-Workout" class="w-full h-full object-contain" loading="lazy"></div>
+            <div class="p-4"><p class="text-xs text-gray-500 mb-1 uppercase tracking-wide">Preworkout</p><h3 class="font-bold text-white text-sm mb-2">Glitch Fuel Pre-Workout</h3><p class="text-yellow-400 font-bold">29.99€</p></div>
+          </a>
+        </div>
+        <div class="group bg-[#151515] rounded-xl overflow-hidden border border-gray-800 relative">
+          <button class="wishlist-btn wishlist-btn--dark" data-name="Vitamina D3 + K2" data-price="12.99€" data-img="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=200" aria-label="Añadir a favoritos"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+          <a href="vitamina-d3-k2.html" class="block">
+            <div class="aspect-square bg-white p-4"><img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?w=200" alt="Vitamina D3 + K2" class="w-full h-full object-contain" loading="lazy"></div>
+            <div class="p-4"><p class="text-xs text-gray-500 mb-1 uppercase tracking-wide">Salud</p><h3 class="font-bold text-white text-sm mb-2">Vitamina D3 + K2</h3><p class="text-yellow-400 font-bold">12.99€</p></div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </section>
+</main>
+<footer style="background: #0a0a0a; color: white; padding: 60px 20px 30px 20px; margin-top: 50px; border-top: 1px solid #222; font-family: 'Poppins', sans-serif;">
+  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+    <div>
+      <h4 style="font-family: 'Orbitron', sans-serif; color: #007BFF; margin-bottom: 20px; font-size: 1rem; text-transform: uppercase;">Productos</h4>
+      <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <li><a href="../producto.html#proteinas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Proteínas</a></li>
+        <li><a href="../producto.html#creatinas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Creatinas</a></li>
+        <li><a href="../producto.html#vitaminas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Vitaminas</a></li>
+        <li><a href="../producto.html#complementos" style="color: #888; text-decoration: none; font-size: 0.9rem;">Complementos</a></li>
+        <li><a href="../producto.html#suplementos" style="color: #888; text-decoration: none; font-size: 0.9rem;">Suplementos</a></li>
+        <li><a href="../producto.html#snacks" style="color: #888; text-decoration: none; font-size: 0.9rem;">Snacks</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="font-family: 'Orbitron', sans-serif; color: #007BFF; margin-bottom: 20px; font-size: 1rem; text-transform: uppercase;">Información</h4>
+      <ul style="list-style: none; padding: 0; line-height: 2;">
+        <li><a href="../../contacto/contacto.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Contacto</a></li>
+        <li><a href="../../blog/blog.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Blog Nutrición</a></li>
+        <li><a href="../../legales/legales.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Aviso Legal / Privacidad</a></li>
+      </ul>
+    </div>
+    <div style="text-align: right;">
+      <div style="font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 900; color: white; margin-bottom: 10px;">
+        <a href="../../index.html" style="color: white; text-decoration: none;">GLITCH <span style="color: #007BFF;">CODE</span></a>
+      </div>
+      <p style="color: #555; font-size: 0.85rem;">Nutrición Deportiva Avanzada.</p>
+    </div>
+  </div>
+</footer>
+
+<div id="wishlistDrawer" class="cart-drawer" aria-hidden="true"><div id="wishlistBackdrop" class="cart-backdrop"></div><aside class="cart-panel"><div class="cart-header"><h3>❤ Lista de deseos</h3><button id="wishlistClose" class="cart-close" type="button">✕</button></div><div id="wishlistItems" class="cart-items"><p class="cart-empty">Sin favoritos aún.</p></div></aside></div>
+<div id="cartDrawer" class="cart-drawer" aria-hidden="true"><div id="cartBackdrop" class="cart-backdrop"></div><aside class="cart-panel"><div class="cart-header"><h3>Tu carrito</h3><button id="cartClose" class="cart-close" type="button">✕</button></div><div id="cartItems" class="cart-items"><p class="cart-empty">Tu carrito está vacío.</p></div><div class="cart-footer"><div class="cart-total-row"><span>Total</span><strong><span id="cartTotal">0.00</span> €</strong></div><a href="../../checkout/checkout.html" class="btn-add-cart w-full rounded-lg py-4 flex items-center justify-center" style="border-radius:0.5rem;padding:1rem;display:flex;align-items:center;justify-content:center;">Finalizar compra →</a></div></aside></div>
+
+<div id="searchOverlay" class="cart-drawer" aria-hidden="true" style="z-index: 3000;">
+  <div id="searchBackdrop" class="cart-backdrop"></div>
+  <aside class="cart-panel" style="width: min(600px, 100%);">
+    <div class="cart-header">
+      <h3>Buscador</h3>
+      <button id="searchClose" class="cart-close">✕</button>
+    </div>
+    <div class="p-6">
+      <input type="text" id="searchInput" placeholder="Busca proteínas, creatinas..." class="form-input" style="background: #1a1a1a; color: white; border-color: var(--color-secondary);">
+      <div id="searchResults" class="mt-8 flex flex-col gap-4">
+        <p class="text-gray-500 text-center">Empieza a escribir para buscar...</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<script src="../../assets/js/main.js"></script>
+<script>
+  // Add to cart button
+  document.getElementById('addToCartBtn').addEventListener('click', function() {
+    const name = this.dataset.name;
+    const price = parseFloat(this.dataset.price);
+    const img = this.dataset.img;
+    const qty = parseInt(document.getElementById('qty').value) || 1;
+    if (typeof addToCart === 'function') {
+      addToCart(name, price, img, qty);
+    } else {
+      // Fallback: store in localStorage
+      const cart = JSON.parse(localStorage.getItem('glitchCart') || '[]');
+      const existing = cart.find(i => i.name === name);
+      if (existing) { existing.qty += qty; } else { cart.push({name, price, img, qty}); }
+      localStorage.setItem('glitchCart', JSON.stringify(cart));
+      document.getElementById('cartDrawer').setAttribute('aria-hidden', 'false');
+    }
+  });
+
+  function adjustQty(delta) {
+    const input = document.getElementById('qty');
+    const newVal = Math.max(1, (parseInt(input.value) || 1) + delta);
+    input.value = newVal;
+  }
+</script>
+</body>
+</html>

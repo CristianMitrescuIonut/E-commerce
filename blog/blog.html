@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es" data-root="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog | Glitch Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+
+<header class="header-fixed">
+  <div class="header-inner">
+    <a href="../index.html" class="logo">GLITCH CODE</a>
+    <nav class="header-nav">
+      <a href="../index.html" class="nav-link">Inicio</a>
+      <div class="nav-item">
+        <a href="../producto/producto.html" class="nav-link">Producto ▾</a>
+        <div class="dropdown-menu">
+          <div class="dropdown-label">Proteínas</div><a href="../producto/producto.html">Whey Isolate</a>
+          <div class="dropdown-divider"></div>
+          <div class="dropdown-label">Fuerza</div><a href="../producto/producto.html#creatinas">Creatina</a><a href="../producto/producto.html#suplementos">Pre-Workout</a>
+          <div class="dropdown-divider"></div>
+          <div class="dropdown-label">Salud</div><a href="../producto/producto.html#vitaminas">Vitaminas</a><a href="../producto/producto.html#complementos">Complementos</a>
+          <div class="dropdown-divider"></div>
+          <a href="../producto/producto.html#snacks">Snacks</a>
+          <div class="dropdown-divider"></div>
+          <a href="../producto/producto.html" style="color:var(--color-accent);font-weight:700;">⚡ Ver todos</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="blog.html" class="nav-link" style="color:var(--color-secondary)">Blog ▾</a>
+        <div class="dropdown-menu">
+          <a href="#guias">Guías de suplementos</a>
+          <a href="#nutricion">Nutrición</a>
+          <a href="#recuperacion">Recuperación</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../contacto/contacto.html" class="nav-link">Contacto ▾</a>
+        <div class="dropdown-menu"><a href="../contacto/contacto.html#formulario">Enviar mensaje</a><a href="../contacto/contacto.html#ubicacion">Ubicación</a></div>
+      </div>
+      <div class="nav-item">
+        <a href="../legales/legales.html" class="nav-link">Legales ▾</a>
+        <div class="dropdown-menu"><a href="../legales/legales.html#aviso">Aviso legal</a><a href="../legales/legales.html#privacidad">Privacidad</a><a href="../legales/legales.html#cookies">Cookies</a><a href="../legales/legales.html#condiciones">Condiciones</a></div>
+      </div>
+    </nav>
+    <div class="header-icons">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      <button id="wishlistToggle" class="cart-toggle" aria-label="Wishlist" type="button"><svg class="icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg><span id="wishlistCount" class="cart-count" style="display:none">0</span></button>
+      <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <button id="cartToggle" class="cart-toggle" aria-label="Carrito" type="button"><svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span id="cartCount" class="cart-count">0</span></button>
+      <button id="hamburgerBtn" class="hamburger-btn" aria-label="Menú" type="button"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav id="mobileNav" class="mobile-nav">
+    <a href="../index.html">Inicio</a>
+    <a href="../producto/producto.html">Producto</a>
+    <a href="blog.html">Blog</a>
+    <a href="../contacto/contacto.html">Contacto</a>
+    <a href="../legales/legales.html">Legales</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="hero-inner">
+      <h1 class="hero-title">BLOG GLITCH CODE</h1>
+      <p class="hero-subtitle">Guías de suplementación, nutrición deportiva y estrategias de recuperación basadas en ciencia.</p>
+    </div>
+  </section>
+
+  <!-- FILTROS DE CATEGORÍA -->
+  <section class="section-shell p-4">
+    <div class="flex flex-wrap gap-3 justify-center max-w-7xl mx-auto">
+      <a href="#" class="cta-btn active-filter" style="margin-top:0;padding:.6rem 1.4rem;font-size:.85rem;" onclick="filterBlog('todos',this)">Todos</a>
+      <a href="#guias" class="cta-btn" style="margin-top:0;padding:.6rem 1.4rem;font-size:.85rem;background:#333;" onclick="filterBlog('guias',this)">Guías</a>
+      <a href="#nutricion" class="cta-btn" style="margin-top:0;padding:.6rem 1.4rem;font-size:.85rem;background:#333;" onclick="filterBlog('nutricion',this)">Nutrición</a>
+      <a href="#recuperacion" class="cta-btn" style="margin-top:0;padding:.6rem 1.4rem;font-size:.85rem;background:#333;" onclick="filterBlog('recuperacion',this)">Recuperación</a>
+    </div>
+  </section>
+
+  <!-- ARTÍCULO DESTACADO -->
+  <section class="section-shell" style="overflow:hidden">
+    <div class="grid grid-cols-1 md:grid-cols-2">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Artículo destacado" class="w-full h-80 object-cover">
+      <div class="p-8 flex flex-col justify-center">
+        <span class="blog-tag">Destacado · Guía</span>
+        <h2 style="font-family:var(--font-heading);font-size:1.6rem;text-transform:uppercase;letter-spacing:1px;color:var(--color-primary);margin-bottom:1rem;">La guía definitiva de la creatina: ciencia, dosis y mitos</h2>
+        <p style="color:#555;line-height:1.7;font-size:.95rem;margin-bottom:1.5rem;">La creatina es el suplemento más estudiado de la historia. En este artículo revisamos las evidencias, los protocolos de carga y saturación, y los mitos que deberías ignorar.</p>
+        <div style="display:flex;align-items:center;gap:1rem;font-size:.85rem;color:#888;margin-bottom:1.5rem">
+          <span>📅 12 de abril, 2026</span>
+          <span>⏱ 8 min de lectura</span>
+        </div>
+        <a href="#" class="cta-btn" style="margin-top:0;width:fit-content">Leer artículo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GUÍAS ════════════════════════════════════════════ -->
+  <section id="guias" class="section-shell p-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-title mb-8">📘 GUÍAS DE SUPLEMENTOS</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <div class="blog-card">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" alt="Creatina guía">
+          <div class="blog-card-body">
+            <span class="blog-tag">Guía</span>
+            <h3 class="blog-card-title">Creatina: todo lo que necesitas saber</h3>
+            <p class="blog-card-excerpt">Qué es, para qué sirve, cómo tomarla y cuánta. Respuestas a las dudas más frecuentes sobre la creatina monohidrato.</p>
+            <div style="font-size:.78rem;color:#888;margin-top:.75rem">⏱ 8 min · 12 abr 2026</div>
+            <a href="#" class="blog-card-link">Leer más →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1579364046732-c21c2177730d?auto=format&fit=crop&w=800&q=80" alt="Proteína guía">
+          <div class="blog-card-body">
+            <span class="blog-tag">Guía</span>
+            <h3 class="blog-card-title">Whey vs Caseína: cuándo tomar cada una</h3>
+            <p class="blog-card-excerpt">Descubre las diferencias de absorción, ventana anabólica y cuándo es mejor cada tipo de proteína según tus objetivos.</p>
+            <div style="font-size:.78rem;color:#888;margin-top:.75rem">⏱ 6 min · 5 abr 2026</div>
+            <a href="#" class="blog-card-link">Leer más →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=800&q=80" alt="Pre-workout guía">
+          <div class="blog-card-body">
+            <span class="blog-tag">Guía</span>
+            <h3 class="blog-card-title">Cómo elegir tu pre-entreno sin arruinar tu sueño</h3>
+            <p class="blog-card-excerpt">Cafeína, L-Citrulina, Beta-Alanina... Te explicamos qué hace cada ingrediente y cómo ajustar la dosis a tu tolerancia.</p>
+            <div style="font-size:.78rem;color:#888;margin-top:.75rem">⏱ 7 min · 28 mar 2026</div>
+            <a href="#" class="blog-card-link">Leer más →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NUTRICIÓN ═══════════════════════════════════════ -->
+  <section id="nutricion" class="section-shell product-dark p-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-title mb-8">🥗 NUTRICIÓN</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <div class="blog-card">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80" alt="Macros">
+          <div class="blog-card-body">
+            <span class="blog-tag">Nutrición</span>
+            <h3 class="blog-card-title">Cómo calcular tus macros para ganar masa muscular</h3>
+            <p class="blog-card-excerpt">Proteínas, carbohidratos y grasas: la guía definitiva con calculadoras y ejemplos de menú semanal.</p>
+            <div style="font-size:.78rem;color:#888;margin-top:.75rem">⏱ 10 min · 20 mar 2026</div>
+            <a href="#" class="blog-card-link">Leer más →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" alt="Comida real vs suplementos">
+          <div class="blog-card-body">
+            <span class="blog-tag">Nutrición</span>
+            <h3 class="blog-card-title">Comida real vs suplementos: ¿qué necesitas realmente?</h3>
+            <p class="blog-card-excerpt">Los suplementos no reemplazan una buena dieta. Te decimos cuándo merece la pena suplementarse y cuándo no.</p>
+            <div style="font-size:.78rem;color:#888;margin-top:.75rem">⏱ 5 min · 14 mar 2026</div>
+            <a href="#" class="blog-card-link">Leer más →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=800&q=80" alt="Carbohidratos">
+          <div class="blog-card-body">
+            <span class="blog-tag">Nutrición</span>
+            <h3 class="blog-card-title">Los carbohidratos no son el enemigo: guía completa</h3>
+            <p class="blog-card-excerpt">Índice glucémico, timing de carbohidratos y cómo periodizar la ingesta para maximizar rendimiento y composición corporal.</p>
+            <div style="font-size:.78rem;color:#888;margin-top:.75rem">⏱ 9 min · 7 mar 2026</div>
+            <a href="#" class="blog-card-link">Leer más →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RECUPERACIÓN ═══════════════════════════════════ -->
+  <section id="recuperacion" class="section-shell p-8">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-title mb-8">💪 RECUPERACIÓN</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <div class="blog-card">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" alt="Recuperación post-entreno">
+          <div class="blog-card-body">
+            <span class="blog-tag">Recuperación</span>
+            <h3 class="blog-card-title">Recuperación óptima post-entreno: la ventana anabólica</h3>
+            <p class="blog-card-excerpt">¿Tienes 30 minutos para tomar proteína? Te explicamos la verdad científica sobre la ventana anabólica y qué hacer realmente.</p>
+            <div style="font-size:.78rem;color:#888;margin-top:.75rem">⏱ 7 min · 1 mar 2026</div>
+            <a href="#" class="blog-card-link">Leer más →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Sueño y rendimiento">
+          <div class="blog-card-body">
+            <span class="blog-tag">Recuperación</span>
+            <h3 class="blog-card-title">Sueño y rendimiento deportivo: la guía que nadie te da</h3>
+            <p class="blog-card-excerpt">Dormir mal destruye tus ganancias. Descubre cómo el sueño afecta a la recuperación muscular, el cortisol y la composición corporal.</p>
+            <div style="font-size:.78rem;color:#888;margin-top:.75rem">⏱ 8 min · 22 feb 2026</div>
+            <a href="#" class="blog-card-link">Leer más →</a>
+          </div>
+        </div>
+
+        <div class="blog-card">
+          <img class="blog-card-img" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80" alt="Agujetas">
+          <div class="blog-card-body">
+            <span class="blog-tag">Recuperación</span>
+            <h3 class="blog-card-title">Cómo reducir las agujetas de forma efectiva</h3>
+            <p class="blog-card-excerpt">DOMS: qué son exactamente las agujetas, por qué aparecen y las estrategias que realmente funcionan para reducirlas.</p>
+            <div style="font-size:.78rem;color:#888;margin-top:.75rem">⏱ 6 min · 15 feb 2026</div>
+            <a href="#" class="blog-card-link">Leer más →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA de newsletter -->
+  <section class="section-shell product-dark p-10 text-center">
+    <div class="max-w-xl mx-auto">
+      <h2 class="section-title mb-4">MANTENTE ACTUALIZADO</h2>
+      <p class="text-gray-400 mb-8">Recibe los mejores artículos de nutrición y suplementación directamente en tu correo.</p>
+      <div class="flex gap-3 max-w-md mx-auto flex-wrap justify-center">
+        <input type="email" placeholder="tu@email.com" style="flex:1;min-width:200px;background:#1a1a2e;border:1px solid rgba(0,123,255,.4);border-radius:9999px;padding:.8rem 1.5rem;color:#fff;outline:none;font-family:var(--font-body)">
+        <button class="cta-btn" style="margin-top:0">Suscribirme →</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer style="background: #0a0a0a; color: white; padding: 60px 20px 30px 20px; margin-top: 50px; border-top: 1px solid #222; font-family: 'Poppins', sans-serif;">
+  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+    
+    <div>
+      <h4 style="font-family: 'Orbitron', sans-serif; color: #007BFF; margin-bottom: 20px; font-size: 1rem; text-transform: uppercase;">Productos</h4>
+      <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <li><a href="../producto/producto.html#proteinas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Proteínas</a></li>
+        <li><a href="../producto/producto.html#creatinas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Creatinas</a></li>
+        <li><a href="../producto/producto.html#vitaminas" style="color: #888; text-decoration: none; font-size: 0.9rem;">Vitaminas</a></li>
+        <li><a href="../producto/producto.html#complementos" style="color: #888; text-decoration: none; font-size: 0.9rem;">Complementos</a></li>
+        <li><a href="../producto/producto.html#suplementos" style="color: #888; text-decoration: none; font-size: 0.9rem;">Suplementos</a></li>
+        <li><a href="../producto/producto.html#snacks" style="color: #888; text-decoration: none; font-size: 0.9rem;">Snacks</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 style="font-family: 'Orbitron', sans-serif; color: #007BFF; margin-bottom: 20px; font-size: 1rem; text-transform: uppercase;">Información</h4>
+      <ul style="list-style: none; padding: 0; line-height: 2;">
+        <li><a href="../contacto/contacto.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Contacto</a></li>
+        <li><a href="../blog/blog.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Blog Nutrición</a></li>
+        <li><a href="../legales/legales.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Aviso Legal / Privacidad</a></li>
+      </ul>
+    </div>
+
+    <div style="text-align: right;">
+      <div style="font-family: 'Orbitron', sans-serif; font-size: 1.4rem; font-weight: 900; color: white; margin-bottom: 10px;">
+        <a href="../index.html" style="color: white; text-decoration: none;">GLITCH <span style="color: #007BFF;">CODE</span></a>
+      </div>
+      <p style="color: #555; font-size: 0.85rem;">Nutrición Deportiva Avanzada.</p>
+    </div>
+  </div>
+</footer>
+<div id="wishlistDrawer" class="cart-drawer" aria-hidden="true"><div id="wishlistBackdrop" class="cart-backdrop"></div><aside class="cart-panel"><div class="cart-header"><h3>❤ Lista de deseos</h3><button id="wishlistClose" class="cart-close" type="button">✕</button></div><div id="wishlistItems" class="cart-items"><p class="cart-empty">Sin favoritos.</p></div></aside></div>
+<div id="cartDrawer" class="cart-drawer" aria-hidden="true"><div id="cartBackdrop" class="cart-backdrop"></div><aside class="cart-panel"><div class="cart-header"><h3>Tu carrito</h3><button id="cartClose" class="cart-close" type="button">✕</button></div><div id="cartItems" class="cart-items"><p class="cart-empty">Tu carrito está vacío.</p></div><div class="cart-footer"><div class="cart-total-row"><span>Total</span><strong><span id="cartTotal">0.00</span> €</strong></div><a href="../checkout/checkout.html" class="btn-add-cart" style="border-radius:0.5rem;padding:1rem;display:flex;align-items:center;justify-content:center;">Finalizar compra →</a></div></aside></div>
+
+<script src="../assets/js/main.js"></script>
+
+<div id="searchOverlay" class="cart-drawer" aria-hidden="true" style="z-index: 3000;">
+  <div id="searchBackdrop" class="cart-backdrop"></div>
+  <aside class="cart-panel" style="width: min(600px, 100%);">
+    <div class="cart-header">
+      <h3>Buscador</h3>
+      <button id="searchClose" class="cart-close">✕</button>
+    </div>
+    <div class="p-6">
+      <input type="text" id="searchInput" placeholder="Busca proteínas, creatinas..." 
+             class="form-input" style="background: #1a1a1a; color: white; border-color: var(--color-secondary);">
+      
+      <div id="searchResults" class="mt-8 flex flex-col gap-4">
+        <p class="text-gray-500 text-center">Empieza a escribir para buscar...</p>
+      </div>
+    </div>
+  </aside>
+</div>
+
+
+</body>
+</html>
